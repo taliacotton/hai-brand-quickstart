@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stanford HAI — Brand Quick Start</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <header class="hero">
+    <div class="hero__inner">
+      <img src="assets/logomark.svg" alt="Stanford HAI logomark" class="hero__mark" width="120" height="52">
+      <p class="hero__eyebrow">Brand Guidelines 2026</p>
+      <h1 class="hero__title">Quick Start Reference</h1>
+      <p class="hero__lead">Essential colors, type, and logo guidance for Stanford University Human-Centered Artificial Intelligence. Click any swatch to copy hex or RGB values.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://www.figma.com/design/i5oYzzmzESojGcp37stFCp/-HAI--Guidelines" target="_blank" rel="noopener noreferrer">Full guidelines (Figma)</a>
+        <a class="btn btn--ghost" href="#downloads">Downloads</a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Page sections">
+    <div class="nav__inner">
+      <a href="#overview">Overview</a>
+      <a href="#colors">Colors</a>
+      <a href="#typography">Typography</a>
+      <a href="#logo">Logo</a>
+      <a href="#rules">Rules</a>
+      <a href="#downloads">Downloads</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="overview" class="section">
+      <div class="section__inner">
+        <h2 class="section__title">Brand at a glance</h2>
+        <div class="cards cards--3">
+          <article class="card">
+            <h3>Distinct yet Stanford</h3>
+            <p>HAI must feel distinctive while making its place within Stanford clear — connected to the university, not interchangeable with it.</p>
+          </article>
+          <article class="card">
+            <h3>Human-centered</h3>
+            <p>Warm, editorial typography paired with clean geometric sans-serifs. Color and graphics should feel vibrant, not corporate.</p>
+          </article>
+          <article class="card">
+            <h3>When in doubt</h3>
+            <p>Use darker tones for backgrounds and body text on light surfaces. Use brighter tones for graphics and accents on dark backgrounds.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="colors" class="section section--tint">
+      <div class="section__inner">
+        <div class="section__header">
+          <div>
+            <p class="section__label">02 · Colors</p>
+            <h2 class="section__title">Brand colors</h2>
+            <p class="section__desc">Swatches for the primary palette. Click a color to copy hex or RGB.</p>
+          </div>
+          <a class="btn btn--small" href="https://drive.google.com/file/d/1r-Xydi-xZ27yYa-YcQNX86g302GKBKNt/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download .ase swatches</a>
+        </div>
+
+        <h3 class="subsection__title">Primary &amp; secondary</h3>
+        <p class="subsection__hint">Darker tones ? backgrounds &amp; text on neutrals · Brighter tones ? graphics &amp; text on dark backgrounds</p>
+        <div class="color-grid" id="primary-colors"></div>
+
+        <h3 class="subsection__title">Accents</h3>
+        <div class="color-grid color-grid--compact" id="accent-colors"></div>
+
+        <h3 class="subsection__title">Neutral backgrounds</h3>
+        <div class="color-grid color-grid--compact" id="neutral-colors"></div>
+
+        <aside class="callout">
+          <h3>Stanford Red</h3>
+          <p>Mix orange with colors from the purple/magenta families to reach cardinal red when a Stanford connection is needed. Avoid pairing two cool tones (blues + teals) or overly dark combinations.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="typography" class="section">
+      <div class="section__inner">
+        <div class="section__header">
+          <div>
+            <p class="section__label">04 · Typography</p>
+            <h2 class="section__title">Type system</h2>
+            <p class="section__desc">Circular for sans-serif UI and Marist for editorial headlines. Resize Marist slightly larger when pairing — different x-heights.</p>
+          </div>
+        </div>
+
+        <div class="type-showcase">
+          <div class="type-block">
+            <p class="type-block__role">Primary sans · Circular</p>
+            <p class="type-sample type-sample--circular-heading">Scientific Discovery</p>
+            <p class="type-sample type-sample--circular-sub">New AI tools find patterns in data</p>
+            <p class="type-sample type-sample--circular-body">AI doesn't just speed up discovery. It can facilitate collaboration across disciplines, review literature, generate hypotheses, analyze data, and validate theories.</p>
+            <p class="type-eyebrow">Today's seminar</p>
+            <ul class="type-weights">
+              <li>Bold</li>
+              <li>Medium</li>
+              <li>Book</li>
+              <li>Regular</li>
+            </ul>
+          </div>
+          <div class="type-block">
+            <p class="type-block__role">Primary serif · Marist</p>
+            <p class="type-sample type-sample--marist-heading">Scientific Discovery</p>
+            <p class="type-sample type-sample--marist-sub">New AI tools find patterns in data</p>
+            <p class="type-sample type-sample--marist-body">AI doesn't just speed up discovery. It can facilitate collaboration across disciplines, review literature, generate hypotheses, analyze data, and validate theories.</p>
+            <p class="type-note type-note--warn">Don't use Marist as an eyebrow label.</p>
+            <ul class="type-weights">
+              <li>Bold</li>
+              <li>Medium</li>
+              <li>Book</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="subsection__title">Type scale (Circular)</h3>
+        <div class="scale-table">
+          <div class="scale-row"><span>Eyebrow</span><span>1× · uppercase pill label</span></div>
+          <div class="scale-row"><span>Heading</span><span>6× · 120px / 132px leading</span></div>
+          <div class="scale-row"><span>Subheading</span><span>2.25× · 45px / 49px</span></div>
+          <div class="scale-row"><span>Body</span><span>1.25× · 25px / 27.5px · 110% leading</span></div>
+        </div>
+
+        <h3 class="subsection__title">Google Fonts fallback</h3>
+        <p class="subsection__hint">Use in Google Workspace when brand fonts aren't available. No Prisma equivalent.</p>
+        <div class="fallback-table" id="fallback-table"></div>
+      </div>
+    </section>
+
+    <section id="logo" class="section section--tint">
+      <div class="section__inner">
+        <div class="section__header">
+          <div>
+            <p class="section__label">03 · Logo</p>
+            <h2 class="section__title">Logo system</h2>
+            <p class="section__desc">Primary logomark, horizontal &amp; vertical lockups, centers &amp; labs lockups, pillar lockups, and collab lockups.</p>
+          </div>
+        </div>
+
+        <div class="logo-grid">
+          <figure class="logo-card">
+            <img src="assets/logomark.svg" alt="Primary logomark" class="logo-card__img">
+            <figcaption>
+              <strong>Primary logomark</strong>
+              <a href="assets/logomark.svg" download="hai-logomark.svg">Download SVG</a>
+            </figcaption>
+          </figure>
+          <figure class="logo-card">
+            <div class="logo-lockup logo-lockup--horizontal">
+              <img src="assets/logomark.svg" alt="" aria-hidden="true">
+              <div>
+                <span class="logo-lockup__uni">Stanford University</span>
+                <span class="logo-lockup__name">Human-Centered<br>Artificial<br>Intelligence</span>
+              </div>
+            </div>
+            <figcaption>
+              <strong>Horizontal lockup</strong>
+              <span>Use when width allows</span>
+            </figcaption>
+          </figure>
+          <figure class="logo-card">
+            <div class="logo-lockup logo-lockup--vertical">
+              <img src="assets/logomark-vertical.svg" alt="" aria-hidden="true">
+              <div>
+                <span class="logo-lockup__uni">Stanford University</span>
+                <span class="logo-lockup__name">Human-Centered Artificial Intelligence</span>
+              </div>
+            </div>
+            <figcaption>
+              <strong>Vertical lockup</strong>
+              <span>Use in narrow layouts</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="rules" class="section">
+      <div class="section__inner">
+        <p class="section__label">Essentials</p>
+        <h2 class="section__title">Do &amp; don't</h2>
+        <div class="rules-grid">
+          <article class="rule rule--do">
+            <h3>Do</h3>
+            <ul>
+              <li>Use darker palette tones for backgrounds and long-form text on light surfaces</li>
+              <li>Use brighter tones for hero graphics and accent type on dark backgrounds</li>
+              <li>Optically align Marist ~8% larger than Circular when paired</li>
+              <li>Use Circular Book for eyebrow labels (uppercase, pill outline)</li>
+              <li>Keep clear space around the logomark equal to the height of the mark</li>
+            </ul>
+          </article>
+          <article class="rule rule--dont">
+            <h3>Don't</h3>
+            <ul>
+              <li>Use Marist for small eyebrow or label text</li>
+              <li>Pair two cool-toned colors for Stanford Red mixes</li>
+              <li>Use overly dark color pairs that muddy together</li>
+              <li>Stretch, recolor, or rebuild the logomark from scratch</li>
+              <li>Use Prisma in Google Workspace — no equivalent fallback exists</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="downloads" class="section section--tint">
+      <div class="section__inner">
+        <p class="section__label">Resources</p>
+        <h2 class="section__title">Downloads &amp; links</h2>
+        <div class="download-grid" id="download-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>Stanford HAI</strong> · Brand Guidelines 2026 · Quick Start Reference</p>
+    <p class="footer__note">For internal Stanford HAI use. Licensed fonts (Circular, Marist, Prisma) require separate procurement.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
