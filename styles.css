@@ -1995,7 +1995,7 @@ a {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
-  margin-top: 1.25rem;
+  margin: 1.25rem 0 2rem;
 }
 
 .logo-card--pillar {
@@ -2005,7 +2005,7 @@ a {
 .logo-card__preview--pillar {
   height: auto;
   min-height: 0;
-  padding: 0;
+  padding: 15px;
   background: transparent;
 }
 
@@ -2023,8 +2023,12 @@ a {
 }
 
 .logo-card__body--pillar {
-  gap: 0;
+  gap: 1rem;
   padding: 1rem 0.9375rem 1.0625rem;
+}
+
+.logo-card__copy--pillar {
+  gap: 0;
 }
 
 @media (max-width: 720px) {
@@ -2110,18 +2114,13 @@ a {
 }
 
 .centers-lockup-intro .centers-lockup-grid--typeface {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.65rem;
   margin-top: 0.75rem;
 }
 
 .centers-lockup-intro .centers-lockup-card {
   padding: 0.75rem 0.55rem 0.65rem;
-}
-
-.centers-lockup-intro .centers-lockup-card figcaption {
-  margin-bottom: 0.45rem;
-  font-size: 0.65rem;
 }
 
 .centers-lockup-intro .center-lockup {
@@ -2131,6 +2130,13 @@ a {
 .centers-lockup-intro .center-lockup__name {
   font-size: 0.95rem;
   line-height: 1.05;
+}
+
+.centers-lockup-intro img.center-lockup__name {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 .centers-lockup-intro .subsection__hint {
@@ -2506,9 +2512,9 @@ a {
 .centers-lockup-card figcaption {
   margin-bottom: 0.85rem;
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-muted);
-  text-align: center;
+  text-align: left;
 }
 
 .center-lockup {
@@ -2778,6 +2784,7 @@ a {
   width: 100%;
   border: 1px solid var(--border);
   border-radius: 6px;
+  max-width: 200px;
 }
 
 .usage-demo__copy h4 {

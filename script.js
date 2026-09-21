@@ -1463,8 +1463,8 @@ const RESOURCE_ICONS = {
 
 function resolveResourceIcon(source) {
   const href = source.href ?? source.getAttribute?.("href") ?? "";
-  const label = (source.label ?? source.textContent?.() ?? "").trim().toLowerCase();
-  const hasDownload = source.download ?? source.hasAttribute?.("download") ?? false;
+  const label = (source.label ?? source.textContent ?? "").trim().toLowerCase();
+  const hasDownload = Boolean(source.download) || Boolean(source.hasAttribute?.("download"));
 
   if (hasDownload) return "download";
   if (href.includes("figma.com")) return "figma";
