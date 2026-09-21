@@ -41,7 +41,6 @@
       <a href="#logo">Logo</a>
       <a href="#collab-lockups">Lockups</a>
       <a href="#graphics">Graphics</a>
-      <a href="#rules">Rules</a>
       <a href="#downloads">Downloads</a>
     </div>
   </nav>
@@ -360,36 +359,51 @@
 
         <div class="logo-grid">
           <figure class="logo-card">
-            <img src="assets/logomark.svg" alt="Primary logomark" class="logo-card__img">
-            <figcaption>
-              <strong>Primary logomark</strong>
-              <a href="assets/logomark.svg" download="hai-logomark.svg">Download SVG</a>
+            <div class="logo-card__preview">
+              <img src="assets/logomark.svg" alt="" class="logo-card__preview-img logo-card__preview-img--mark" width="168" height="72" aria-hidden="true">
+            </div>
+            <hr class="logo-card__divider" aria-hidden="true">
+            <figcaption class="logo-card__body">
+              <div class="logo-card__copy">
+                <strong class="logo-card__title">Primary Logomark</strong>
+                <p class="logo-card__desc">Use only when the viewer has already had their introduction to HAI.</p>
+              </div>
+              <div class="logo-card__actions">
+                <a href="assets/logomark.svg" download="hai-logomark.svg" class="logo-card__action">Download SVG</a>
+                <button type="button" class="logo-card__action" data-logo-src="assets/logomark.svg" data-logo-filename="hai-logomark">Download PNG</button>
+              </div>
             </figcaption>
           </figure>
           <figure class="logo-card">
-            <div class="logo-lockup logo-lockup--horizontal">
-              <img src="assets/logomark.svg" alt="" aria-hidden="true">
-              <div>
-                <span class="logo-lockup__uni">Stanford University</span>
-                <span class="logo-lockup__name">Human-Centered<br>Artificial<br>Intelligence</span>
-              </div>
+            <div class="logo-card__preview">
+              <img src="assets/logo-lockup-horizontal.svg" alt="" class="logo-card__preview-img logo-card__preview-img--horizontal" width="2002" height="449" aria-hidden="true">
             </div>
-            <figcaption>
-              <strong>Horizontal lockup</strong>
-              <span>Use when width allows</span>
+            <hr class="logo-card__divider" aria-hidden="true">
+            <figcaption class="logo-card__body">
+              <div class="logo-card__copy">
+                <strong class="logo-card__title">Horizontal lockup</strong>
+                <p class="logo-card__desc">Use when width allows.</p>
+              </div>
+              <div class="logo-card__actions">
+                <a href="assets/logo-lockup-horizontal.svg" download="hai-lockup-horizontal.svg" class="logo-card__action">Download SVG</a>
+                <button type="button" class="logo-card__action" data-logo-src="assets/logo-lockup-horizontal.svg" data-logo-filename="hai-lockup-horizontal">Download PNG</button>
+              </div>
             </figcaption>
           </figure>
           <figure class="logo-card">
-            <div class="logo-lockup logo-lockup--vertical">
-              <img src="assets/logomark-vertical.svg" alt="" aria-hidden="true">
-              <div>
-                <span class="logo-lockup__uni">Stanford University</span>
-                <span class="logo-lockup__name">Human-Centered Artificial Intelligence</span>
-              </div>
+            <div class="logo-card__preview">
+              <img src="assets/logo-lockup-vertical.svg" alt="" class="logo-card__preview-img logo-card__preview-img--vertical" width="1010" height="971" aria-hidden="true">
             </div>
-            <figcaption>
-              <strong>Vertical lockup</strong>
-              <span>Use in narrow layouts</span>
+            <hr class="logo-card__divider" aria-hidden="true">
+            <figcaption class="logo-card__body">
+              <div class="logo-card__copy">
+                <strong class="logo-card__title">Vertical lockup</strong>
+                <p class="logo-card__desc">Use in narrow layouts.</p>
+              </div>
+              <div class="logo-card__actions">
+                <a href="assets/logo-lockup-vertical.svg" download="hai-lockup-vertical.svg" class="logo-card__action">Download SVG</a>
+                <button type="button" class="logo-card__action" data-logo-src="assets/logo-lockup-vertical.svg" data-logo-filename="hai-lockup-vertical">Download PNG</button>
+              </div>
             </figcaption>
           </figure>
         </div>
@@ -417,6 +431,68 @@
             <a class="btn btn--small" href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-10116" target="_blank" rel="noopener noreferrer">Open collab lockup components (Figma)</a>
           </div>
 
+          <div class="collab-subsection collab-subsection--alignment">
+            <h3 class="subsection__title">Alignment &amp; spacing</h3>
+            <p class="subsection__hint">Define <strong>x</strong> as the thickness of the vertical bars in the HAI logomark.</p>
+            <ul class="lockup-guidelines">
+              <li>Maintain <strong>1x</strong> clear space around the entire lockup.</li>
+              <li>Leave <strong>2x</strong> between the HAI logo and the &times; separator, and another <strong>2x</strong> between the separator and the partner logo.</li>
+              <li><strong>Multi-line partner logos:</strong> align with the HAI logomark (top and bottom bounds).</li>
+              <li><strong>Single-line partner logos:</strong> should not exceed 80% of the height of the HAI logomark; center vertically.</li>
+            </ul>
+            <div class="collab-alignment-diagrams">
+              <div class="collab-alignment-diagram-block">
+                <h4 class="collab-alignment-diagram-block__title">One partner</h4>
+                <p class="collab-alignment-diagram-block__hint"><strong>x</strong> is the thickness of the vertical bars in the HAI logomark. Use the &times; separator and leave <strong>2x</strong> between the HAI logo and the separator, and another <strong>2x</strong> between the separator and the partner logo.</p>
+                <figure class="collab-alignment-diagram collab-alignment-diagram--one" role="img" aria-labelledby="collab-alignment-one-caption">
+                  <div class="collab-alignment-diagram__grid collab-alignment-diagram__grid--one">
+                    <span class="collab-alignment-diagram__label collab-alignment-diagram__label--1x">1x</span>
+                    <span class="collab-alignment-diagram__label collab-alignment-diagram__label--2x-before">2x</span>
+                    <span class="collab-alignment-diagram__label collab-alignment-diagram__label--2x-after">2x</span>
+
+                    <div class="collab-alignment-diagram__hai-cell">
+                      <div class="collab-alignment-diagram__unit-1x" aria-hidden="true"></div>
+                      <img src="assets/logo-lockup-horizontal.svg" alt="" class="collab-alignment-diagram__hai" width="2002" height="449">
+                    </div>
+                    <div class="collab-alignment-diagram__gap collab-alignment-diagram__gap--before" aria-hidden="true"></div>
+                    <div class="collab-alignment-diagram__separator" aria-hidden="true"></div>
+                    <div class="collab-alignment-diagram__gap collab-alignment-diagram__gap--after" aria-hidden="true"></div>
+                    <div class="collab-alignment-diagram__partner" aria-hidden="true">
+                      <img src="assets/lockups/collab-partner-org.svg" alt="" class="collab-alignment-diagram__partner-lockup" width="584" height="213">
+                    </div>
+                  </div>
+                  <figcaption id="collab-alignment-one-caption" class="visually-hidden">One-partner collab lockup: HAI horizontal lockup, partner placeholder, separator, 1x bar-width unit, and 2x spacing on each side of the separator.</figcaption>
+                </figure>
+              </div>
+
+              <div class="collab-alignment-diagram-block">
+                <h4 class="collab-alignment-diagram-block__title">Two or more partners</h4>
+                <p class="collab-alignment-diagram-block__hint">Drop the &times; separator. Use a <strong>3x</strong> gap between each logo instead.</p>
+                <figure class="collab-alignment-diagram collab-alignment-diagram--multi" role="img" aria-labelledby="collab-alignment-multi-caption">
+                  <div class="collab-alignment-diagram__grid collab-alignment-diagram__grid--multi">
+                    <span class="collab-alignment-diagram__label collab-alignment-diagram__label--1x">1x</span>
+                    <span class="collab-alignment-diagram__label collab-alignment-diagram__label--3x-before">3x</span>
+                    <span class="collab-alignment-diagram__label collab-alignment-diagram__label--3x-after">3x</span>
+
+                    <div class="collab-alignment-diagram__hai-cell">
+                      <div class="collab-alignment-diagram__unit-1x" aria-hidden="true"></div>
+                      <img src="assets/logo-lockup-horizontal.svg" alt="" class="collab-alignment-diagram__hai" width="2002" height="449">
+                    </div>
+                    <div class="collab-alignment-diagram__gap collab-alignment-diagram__gap--3x collab-alignment-diagram__gap--before" aria-hidden="true"></div>
+                    <div class="collab-alignment-diagram__partner collab-alignment-diagram__partner--first" aria-hidden="true">
+                      <img src="assets/lockups/collab-partner-org.svg" alt="" class="collab-alignment-diagram__partner-lockup" width="584" height="213">
+                    </div>
+                    <div class="collab-alignment-diagram__gap collab-alignment-diagram__gap--3x collab-alignment-diagram__gap--between" aria-hidden="true"></div>
+                    <div class="collab-alignment-diagram__partner collab-alignment-diagram__partner--second" aria-hidden="true">
+                      <img src="assets/lockups/collab-partner-another-org.svg" alt="" class="collab-alignment-diagram__partner-lockup collab-alignment-diagram__partner-lockup--another" width="635" height="222">
+                    </div>
+                  </div>
+                  <figcaption id="collab-alignment-multi-caption" class="visually-hidden">Multi-partner collab lockup: HAI horizontal lockup, two partner placeholders, 1x bar-width unit, and 3x spacing between each logo with no separator.</figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+
           <div class="collab-separator-examples">
             <div class="collab-subsection">
               <h3 class="subsection__title">Separator element on light</h3>
@@ -431,25 +507,6 @@
               <p class="subsection__hint">On dark backgrounds, the &times; separator is <strong>#FFF at 50% opacity</strong>. Logos are reversed (white).</p>
               <figure class="collab-subsection__figure collab-subsection__figure--separator">
                 <img src="assets/lockups/collab-separator-dark.png" alt="Collab lockup separator on a dark background: white cross at 50% opacity" loading="lazy">
-              </figure>
-            </div>
-          </div>
-
-          <div class="collab-subsection">
-            <h3 class="subsection__title">Alignment &amp; spacing</h3>
-            <p class="subsection__hint">Define <strong>x</strong> as the thickness of the vertical bars in the HAI logomark.</p>
-            <ul class="lockup-guidelines">
-              <li>Maintain <strong>1x</strong> clear space around the entire lockup.</li>
-              <li>Leave <strong>2x</strong> between the HAI logo and the &times; separator, and another <strong>2x</strong> between the separator and the partner logo.</li>
-              <li><strong>Multi-line partner logos:</strong> align with the HAI logomark (top and bottom bounds).</li>
-              <li><strong>Single-line partner logos:</strong> should not exceed 80% of the height of the HAI logomark; center vertically.</li>
-            </ul>
-            <div class="collab-guideline-figures">
-              <figure class="collab-subsection__figure">
-                <img src="assets/lockups/collab-alignment.png" alt="Collab lockup alignment: multi-line partner logos align with the HAI logomark; single-line logos stay within 80% of logomark height" loading="lazy">
-              </figure>
-              <figure class="collab-subsection__figure">
-                <img src="assets/lockups/collab-spacing.png" alt="Collab lockup spacing: 2x clear space on each side of the separator" loading="lazy">
               </figure>
             </div>
           </div>
@@ -517,42 +574,36 @@
               <figure class="centers-lockup-card" role="listitem">
                 <figcaption>Marist Book</figcaption>
                 <div class="center-lockup center-lockup--marist center-lockup--book">
-                  <span class="center-lockup__mark" aria-hidden="true"></span>
                   <p class="center-lockup__name">Stanford<br>AI Lab</p>
                 </div>
               </figure>
               <figure class="centers-lockup-card" role="listitem">
                 <figcaption>Marist Medium</figcaption>
                 <div class="center-lockup center-lockup--marist center-lockup--medium">
-                  <span class="center-lockup__mark" aria-hidden="true"></span>
                   <p class="center-lockup__name">Stanford<br>AI Lab</p>
                 </div>
               </figure>
               <figure class="centers-lockup-card" role="listitem">
                 <figcaption>Marist Bold</figcaption>
                 <div class="center-lockup center-lockup--marist center-lockup--bold">
-                  <span class="center-lockup__mark" aria-hidden="true"></span>
                   <p class="center-lockup__name">Stanford<br>AI Lab</p>
                 </div>
               </figure>
               <figure class="centers-lockup-card" role="listitem">
                 <figcaption>Circular Book</figcaption>
                 <div class="center-lockup center-lockup--circular center-lockup--book">
-                  <span class="center-lockup__mark" aria-hidden="true"></span>
                   <p class="center-lockup__name">Stanford<br>AI Lab</p>
                 </div>
               </figure>
               <figure class="centers-lockup-card" role="listitem">
                 <figcaption>Circular Medium</figcaption>
                 <div class="center-lockup center-lockup--circular center-lockup--medium">
-                  <span class="center-lockup__mark" aria-hidden="true"></span>
                   <p class="center-lockup__name">Stanford<br>AI Lab</p>
                 </div>
               </figure>
               <figure class="centers-lockup-card" role="listitem">
                 <figcaption>Circular Black</figcaption>
                 <div class="center-lockup center-lockup--circular center-lockup--black">
-                  <span class="center-lockup__mark" aria-hidden="true"></span>
                   <p class="center-lockup__name">Stanford<br>AI Lab</p>
                 </div>
               </figure>
@@ -561,7 +612,10 @@
           </div>
 
           <aside class="callout centers-figma-callout">
-            <h3 class="subsection__title">Figma component system</h3>
+            <h3 class="subsection__title centers-figma-callout__title">
+              <img src="assets/icons/figma-mark.png" alt="" class="centers-figma-callout__icon" width="35" height="52" aria-hidden="true">
+              Figma component system
+            </h3>
             <p class="subsection__hint">The center lockup component lives in Figma&mdash;select the typeface, weight, and name to generate a lockup without rebuilding from scratch.</p>
             <div class="centers-figma-figures">
               <figure class="collab-subsection__figure">
@@ -589,33 +643,77 @@
     <section id="pillar-lockups" class="section">
       <div class="section__inner">
         <div class="section__main">
-        <div class="lockup-section">
-          <div class="lockup-section__copy">
-            <p class="section__label">Logo &mdash; Pillar lockups</p>
-            <h2 class="section__title">Pillar lockups</h2>
-            <p class="section__desc">Use the following guidelines when building and using the pillar lockups.</p>
-            <div class="lockup-section__actions">
-              <a class="btn btn--small" href="https://drive.google.com/drive/folders/1L986_TqxBPnaHlDvTjCHWZiD04wkQx16?usp=sharing" target="_blank" rel="noopener noreferrer">See all existing lockups</a>
-              <a class="btn btn--ghost btn--small" href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-9367" target="_blank" rel="noopener noreferrer">Build a custom lockup (Figma)</a>
+        <p class="section__label">Logo &mdash; Pillar lockups</p>
+        <h2 class="section__title">Pillar lockups</h2>
+        <p class="section__desc">Use the following guidelines when building and using the pillar lockups.</p>
+        <div class="lockup-section__actions">
+          <a class="btn btn--small" href="https://drive.google.com/drive/folders/1L986_TqxBPnaHlDvTjCHWZiD04wkQx16?usp=sharing" target="_blank" rel="noopener noreferrer">See all existing lockups</a>
+          <a class="btn btn--ghost btn--small" href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-9367" target="_blank" rel="noopener noreferrer">Build a custom lockup (Figma)</a>
+        </div>
+
+        <h3 class="subsection__title">Architecture &amp; clear space</h3>
+        <ul class="lockup-guidelines">
+          <li>Pillar lockups use <strong>Circular Thin</strong> for the pillar name, which optically matches the weight of the lines within the logomark.</li>
+          <li>Size the pillar name to match the height of the logomark from baseline to cap height.</li>
+          <li>Maintain equal spacing (<strong>x</strong>) on both sides of the vertical divider between the logomark and pillar name.</li>
+        </ul>
+
+        <h3 class="subsection__title">Color</h3>
+        <p class="subsection__hint">Pillar lockup color is flexible to its application&mdash;it can match a graphic or act as an accent.</p>
+        <ul class="lockup-guidelines">
+          <li><strong>Image backgrounds:</strong> use a light or white lockup over photography or gradients.</li>
+          <li><strong>Colored backgrounds:</strong> monochrome (single-color) or duotone (logomark + pillar name in related hues).</li>
+          <li><strong>White backgrounds:</strong> duotone lockups using two brand colors work well.</li>
+        </ul>
+
+        <div class="pillar-lockup-grid">
+          <figure class="logo-card logo-card--pillar">
+            <div class="logo-card__preview logo-card__preview--pillar">
+              <img src="assets/lockups/pillar-lockup-image-bg.png" alt="Pillar lockup example on an image background" class="logo-card__preview-img logo-card__preview-img--pillar" width="956" height="232" loading="lazy">
             </div>
-
-            <h3 class="subsection__title">Architecture &amp; clear space</h3>
-            <ul class="lockup-guidelines">
-              <li>Pillar lockups use <strong>Circular Thin</strong> for the pillar name, which optically matches the weight of the lines within the logomark.</li>
-              <li>Size the pillar name to match the height of the logomark from baseline to cap height.</li>
-              <li>Maintain equal spacing (<strong>x</strong>) on both sides of the vertical divider between the logomark and pillar name.</li>
-            </ul>
-
-            <h3 class="subsection__title">Color</h3>
-            <p class="subsection__hint">Pillar lockup color is flexible to its application&mdash;it can match a graphic or act as an accent.</p>
-            <ul class="lockup-guidelines">
-              <li><strong>Image backgrounds:</strong> use a light or white lockup over photography or gradients.</li>
-              <li><strong>Colored backgrounds:</strong> monochrome (single-color) or duotone (logomark + pillar name in related hues).</li>
-              <li><strong>White backgrounds:</strong> duotone lockups using two brand colors work well.</li>
-            </ul>
-          </div>
-          <figure class="lockup-section__figure">
-            <img src="assets/lockups/pillar-lockups.png" alt="Pillar lockup architecture, clear space, and color application examples" loading="lazy">
+            <hr class="logo-card__divider" aria-hidden="true">
+            <figcaption class="logo-card__body logo-card__body--pillar">
+              <div class="logo-card__actions">
+                <a href="assets/lockups/pillar-lockup-image-bg.svg" download="pillar-lockup-image-bg.svg" class="logo-card__action">Download SVG</a>
+                <a href="assets/lockups/pillar-lockup-image-bg.png" download="pillar-lockup-image-bg.png" class="logo-card__action">Download PNG</a>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="logo-card logo-card--pillar">
+            <div class="logo-card__preview logo-card__preview--pillar">
+              <img src="assets/lockups/pillar-lockup-dark-bg.png" alt="Pillar lockup example on a dark background, monochrome" class="logo-card__preview-img logo-card__preview-img--pillar" width="956" height="232" loading="lazy">
+            </div>
+            <hr class="logo-card__divider" aria-hidden="true">
+            <figcaption class="logo-card__body logo-card__body--pillar">
+              <div class="logo-card__actions">
+                <a href="assets/lockups/pillar-lockup-dark-bg.svg" download="pillar-lockup-dark-bg.svg" class="logo-card__action">Download SVG</a>
+                <a href="assets/lockups/pillar-lockup-dark-bg.png" download="pillar-lockup-dark-bg.png" class="logo-card__action">Download PNG</a>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="logo-card logo-card--pillar">
+            <div class="logo-card__preview logo-card__preview--pillar">
+              <img src="assets/lockups/pillar-lockup-white-bg.png" alt="Pillar lockup example on a white background, duotone" class="logo-card__preview-img logo-card__preview-img--pillar" width="956" height="232" loading="lazy">
+            </div>
+            <hr class="logo-card__divider" aria-hidden="true">
+            <figcaption class="logo-card__body logo-card__body--pillar">
+              <div class="logo-card__actions">
+                <a href="assets/lockups/pillar-lockup-white-bg.svg" download="pillar-lockup-white-bg.svg" class="logo-card__action">Download SVG</a>
+                <a href="assets/lockups/pillar-lockup-white-bg.png" download="pillar-lockup-white-bg.png" class="logo-card__action">Download PNG</a>
+              </div>
+            </figcaption>
+          </figure>
+          <figure class="logo-card logo-card--pillar">
+            <div class="logo-card__preview logo-card__preview--pillar">
+              <img src="assets/lockups/pillar-lockup-colored-bg.png" alt="Pillar lockup example on a colored background, duotone" class="logo-card__preview-img logo-card__preview-img--pillar" width="956" height="232" loading="lazy">
+            </div>
+            <hr class="logo-card__divider" aria-hidden="true">
+            <figcaption class="logo-card__body logo-card__body--pillar">
+              <div class="logo-card__actions">
+                <a href="assets/lockups/pillar-lockup-colored-bg.svg" download="pillar-lockup-colored-bg.svg" class="logo-card__action">Download SVG</a>
+                <a href="assets/lockups/pillar-lockup-colored-bg.png" download="pillar-lockup-colored-bg.png" class="logo-card__action">Download PNG</a>
+              </div>
+            </figcaption>
           </figure>
         </div>
         </div>
@@ -700,56 +798,6 @@
             <li><a href="https://stanford-hai-generators.vercel.app/" target="_blank" rel="noopener noreferrer">Open generators</a></li>
             <li><a href="https://www.canva.com/brand" target="_blank" rel="noopener noreferrer">Canva Brand Kit</a></li>
             <li><a href="#gradients">Gradient pairings</a></li>
-            <li><a href="#colors">Brand colors</a></li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <section id="rules" class="section">
-      <div class="section__inner">
-        <div class="section__main">
-        <p class="section__label">Essentials</p>
-        <h2 class="section__title">Do &amp; don't</h2>
-        <div class="rules-grid">
-          <article class="rule rule--do">
-            <h3 class="do-dont-heading">
-              <svg class="do-dont-heading__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
-                <path d="M1.08887 5.19653L6.73657 10.8442L16.4917 1.08911" stroke="#06A35C" stroke-width="3.08057"/>
-              </svg>
-              Do
-            </h3>
-            <ul>
-              <li>Use darker palette tones for backgrounds and long-form text on light surfaces</li>
-              <li>Use brighter tones for hero graphics and accent type on dark backgrounds</li>
-              <li>Optically align Marist ~8% larger than Circular when paired</li>
-              <li>Use Circular Book for eyebrow labels (uppercase, pill outline)</li>
-              <li>Keep clear space around the logomark equal to the height of the mark</li>
-            </ul>
-          </article>
-          <article class="rule rule--dont">
-            <h3 class="do-dont-heading">
-              <svg class="do-dont-heading__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
-                <path d="M1.02661 1.02661L11.915 11.915" stroke="#F04444" stroke-width="2.90358"/>
-                <path d="M1.02637 11.915L11.9148 1.02661" stroke="#F04444" stroke-width="2.90358"/>
-              </svg>
-              Don&rsquo;t
-            </h3>
-            <ul>
-              <li>Use Marist for small eyebrow or label text</li>
-              <li>Pair two cool-toned colors for Stanford Cardinal Red mixes</li>
-              <li>Use overly dark color pairs that muddy together</li>
-              <li>Stretch, recolor, or rebuild the logomark from scratch</li>
-              <li>Use Prisma in Google Workspace &mdash; no equivalent fallback exists</li>
-            </ul>
-          </article>
-        </div>
-        </div>
-        <aside class="section__resources" aria-label="Rules resources">
-          <p class="section__resources-label">Resources</p>
-          <ul class="section__resources-list">
-            <li><a href="#typography">Type system</a></li>
-            <li><a href="#logo">Logo system</a></li>
             <li><a href="#colors">Brand colors</a></li>
           </ul>
         </aside>

@@ -498,37 +498,37 @@ const DOWNLOADS = [
     download: "hai-logomark.svg",
   },
   {
-    title: "Centers & labs lockups (Drive)",
+    title: "Centers & labs lockups",
     desc: "Existing center and lab lockup exports",
     href: "https://drive.google.com/drive/folders/13ETftz1ioIaJODjHB91nXH-RfKzjBfmV?usp=sharing",
     external: true,
   },
   {
-    title: "Pillar lockups (Drive)",
+    title: "Pillar lockups",
     desc: "Existing pillar lockup exports",
     href: "https://drive.google.com/drive/folders/1L986_TqxBPnaHlDvTjCHWZiD04wkQx16?usp=sharing",
     external: true,
   },
   {
-    title: "Logo lockup builder (Figma)",
+    title: "Logo lockup builder",
     desc: "Build custom center, lab, pillar, and collab lockups",
     href: "https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-9367",
     external: true,
   },
   {
-    title: "Full brand guidelines (Figma)",
+    title: "Full brand guidelines",
     desc: "Complete 2026 guidelines deck",
     href: "https://www.figma.com/design/i5oYzzmzESojGcp37stFCp/-HAI--Guidelines",
     external: true,
   },
   {
-    title: "Circular  Lineto",
+    title: "Circular (Lineto)",
     desc: "Primary sans-serif typeface",
     href: "https://lineto.com/typefaces/circular",
     external: true,
   },
   {
-    title: "Marist  Dinamo",
+    title: "Marist (Dinamo)",
     desc: "Primary serif typeface",
     href: "https://abcdinamo.com/typefaces/marist",
     external: true,
@@ -682,8 +682,14 @@ function renderFallbacks() {
   container.appendChild(header);
 
   FONT_FALLBACKS.forEach(({ primary, fallback, primaryFamily, primaryWeight, family, weight, noEquiv, googleUrl }) => {
-    const row = document.createElement("div");
-    row.className = "fallback-row";
+    const row = document.createElement(googleUrl ? "a" : "div");
+    row.className = googleUrl ? "fallback-row fallback-row--interactive" : "fallback-row";
+    if (googleUrl) {
+      row.href = googleUrl;
+      row.target = "_blank";
+      row.rel = "noopener noreferrer";
+      row.setAttribute("aria-label", `Get ${fallback} on Google Fonts`);
+    }
 
     const primaryEl = document.createElement("span");
     primaryEl.className = "fallback-row__primary";
@@ -711,13 +717,11 @@ function renderFallbacks() {
     row.append(primaryEl, arrow, altEl);
 
     if (googleUrl) {
-      const link = document.createElement("a");
-      link.className = "btn btn--small fallback-row__link";
-      link.href = googleUrl;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = "Get this style";
-      row.appendChild(link);
+      const action = document.createElement("span");
+      action.className = "btn btn--small fallback-row__link";
+      action.setAttribute("aria-hidden", "true");
+      action.textContent = "Get this style";
+      row.appendChild(action);
     } else {
       const spacer = document.createElement("span");
       spacer.setAttribute("aria-hidden", "true");
@@ -833,6 +837,37 @@ function drawGradientToCanvas(canvas, gradientData) {
 
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function downloadLogoLockupPng(svgSrc, filename) {
+  const img = new Image();
+  img.onload = () => {
+    const scale = 2;
+    const canvas = document.createElement("canvas");
+    canvas.width = img.naturalWidth * scale;
+    canvas.height = img.naturalHeight * scale;
+    const ctx = canvas.getContext("2d");
+    ctx.scale(scale, scale);
+    ctx.drawImage(img, 0, 0);
+    canvas.toBlob((blob) => {
+      if (!blob) return;
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${filename}.png`;
+      link.click();
+      URL.revokeObjectURL(url);
+    }, "image/png");
+  };
+  img.src = svgSrc;
+}
+
+function initLogoLockupDownloads() {
+  document.querySelectorAll(".logo-card__action[data-logo-src]").forEach((button) => {
+    button.addEventListener("click", () => {
+      downloadLogoLockupPng(button.dataset.logoSrc, button.dataset.logoFilename);
+    });
+  });
 }
 
 function downloadGradientPng(preset) {
@@ -1426,11 +1461,12 @@ const RESOURCE_ICONS = {
   canva: "assets/icons/resources/canva.png",
 };
 
-function resolveResourceIcon(link) {
-  const href = link.getAttribute("href") || "";
-  const label = link.textContent.trim().toLowerCase();
+function resolveResourceIcon(source) {
+  const href = source.href ?? source.getAttribute?.("href") ?? "";
+  const label = (source.label ?? source.textContent?.() ?? "").trim().toLowerCase();
+  const hasDownload = source.download ?? source.hasAttribute?.("download") ?? false;
 
-  if (link.hasAttribute("download")) return "download";
+  if (hasDownload) return "download";
   if (href.includes("figma.com")) return "figma";
   if (href.includes("canva.com")) return "canva";
   if (href.includes("stanford-hai-generators")) return "generator";
@@ -1442,6 +1478,27 @@ function resolveResourceIcon(link) {
   return "download";
 }
 
+function createResourceIconElement(iconType, classPrefix = "resource-chip") {
+  const iconWrap = document.createElement("span");
+  iconWrap.className = `${classPrefix}__icon-wrap`;
+
+  const icon = document.createElement("img");
+  icon.className = `${classPrefix}__icon`;
+  if (iconType === "canva") {
+    icon.classList.add(`${classPrefix}__icon--canva`);
+  } else if (!["download", "generator", "pdf"].includes(iconType)) {
+    icon.classList.add(`${classPrefix}__icon--brand`);
+  }
+  icon.src = RESOURCE_ICONS[iconType];
+  icon.alt = "";
+  icon.width = 20;
+  icon.height = 20;
+  icon.setAttribute("aria-hidden", "true");
+
+  iconWrap.appendChild(icon);
+  return iconWrap;
+}
+
 function initResourceLinks() {
   document.querySelectorAll(".section__resources-list a").forEach((link) => {
     const iconType = resolveResourceIcon(link);
@@ -1450,27 +1507,11 @@ function initResourceLinks() {
     link.classList.add("resource-chip");
     link.textContent = "";
 
-    const iconWrap = document.createElement("span");
-    iconWrap.className = "resource-chip__icon-wrap";
-
-    const icon = document.createElement("img");
-    icon.className = "resource-chip__icon";
-    if (iconType === "canva") {
-      icon.classList.add("resource-chip__icon--canva");
-    } else if (!["download", "generator", "pdf"].includes(iconType)) {
-      icon.classList.add("resource-chip__icon--brand");
-    }
-    icon.src = RESOURCE_ICONS[iconType];
-    icon.alt = "";
-    icon.width = 20;
-    icon.height = 20;
-
     const text = document.createElement("span");
     text.className = "resource-chip__label";
     text.textContent = label;
 
-    iconWrap.appendChild(icon);
-    link.append(iconWrap, text);
+    link.append(createResourceIconElement(iconType), text);
   });
 }
 
@@ -1487,7 +1528,24 @@ function renderDownloads() {
     if (item.download) {
       link.download = item.download;
     }
-    link.innerHTML = `<strong>${item.title}</strong><span>${item.desc}</span>`;
+
+    const iconType = resolveResourceIcon({
+      href: item.href,
+      label: item.title,
+      download: Boolean(item.download),
+    });
+
+    const body = document.createElement("span");
+    body.className = "download-card__body";
+
+    const title = document.createElement("strong");
+    title.textContent = item.title;
+
+    const desc = document.createElement("span");
+    desc.textContent = item.desc;
+
+    body.append(title, desc);
+    link.append(createResourceIconElement(iconType, "download-card"), body);
     container.appendChild(link);
   });
 }
@@ -1507,4 +1565,5 @@ renderGenerators();
 renderTemplateUsage();
 renderCanvaTemplates();
 renderDownloads();
+initLogoLockupDownloads();
 initResourceLinks();
