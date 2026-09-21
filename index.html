@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stanford HAI — Brand Quick Start</title>
+  <title>Stanford HAI &mdash; Brand Quick Start</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,13 +14,20 @@
 
   <header class="hero">
     <div class="hero__inner">
-      <img src="assets/logomark.svg" alt="Stanford HAI logomark" class="hero__mark" width="120" height="52">
-      <p class="hero__eyebrow">Brand Guidelines 2026</p>
-      <h1 class="hero__title">Quick Start Reference</h1>
-      <p class="hero__lead">Essential colors, type, and logo guidance for Stanford University Human-Centered Artificial Intelligence. Click any swatch to copy hex or RGB values.</p>
+      <div class="hero__logo" aria-label="Stanford University Human-Centered Artificial Intelligence">
+        <img src="assets/hero-logomark.svg" alt="" class="hero__logo-mark" width="121" height="52" aria-hidden="true">
+        <img src="assets/hero-wordmark.svg" alt="" class="hero__logo-wordmark" width="108" height="52" aria-hidden="true">
+      </div>
+      <h1 class="hero__title">Brand Identity<br>Quick Start Guide</h1>
       <div class="hero__actions">
-        <a class="btn btn--primary" href="https://www.figma.com/design/i5oYzzmzESojGcp37stFCp/-HAI--Guidelines" target="_blank" rel="noopener noreferrer">Full guidelines (Figma)</a>
-        <a class="btn btn--ghost" href="#downloads">Downloads</a>
+        <a class="btn btn--primary" href="https://www.figma.com/design/i5oYzzmzESojGcp37stFCp/-HAI--Guidelines" target="_blank" rel="noopener noreferrer">
+          <img src="assets/icons/hero/figma.png" alt="" class="btn__icon" width="16" height="16" aria-hidden="true">
+          Full guidelines (Figma)
+        </a>
+        <a class="btn btn--ghost" href="#downloads">
+          <img src="assets/icons/hero/drive.png" alt="" class="btn__icon" width="16" height="16" aria-hidden="true">
+          Downloads
+        </a>
       </div>
     </div>
   </header>
@@ -29,8 +36,11 @@
     <div class="nav__inner">
       <a href="#overview">Overview</a>
       <a href="#colors">Colors</a>
+      <a href="#gradients">Gradients</a>
       <a href="#typography">Typography</a>
       <a href="#logo">Logo</a>
+      <a href="#collab-lockups">Lockups</a>
+      <a href="#graphics">Graphics</a>
       <a href="#rules">Rules</a>
       <a href="#downloads">Downloads</a>
     </div>
@@ -39,38 +49,64 @@
   <main>
     <section id="overview" class="section">
       <div class="section__inner">
-        <h2 class="section__title">Brand at a glance</h2>
-        <div class="cards cards--3">
-          <article class="card">
-            <h3>Distinct yet Stanford</h3>
-            <p>HAI must feel distinctive while making its place within Stanford clear — connected to the university, not interchangeable with it.</p>
-          </article>
-          <article class="card">
-            <h3>Human-centered</h3>
-            <p>Warm, editorial typography paired with clean geometric sans-serifs. Color and graphics should feel vibrant, not corporate.</p>
-          </article>
-          <article class="card">
-            <h3>When in doubt</h3>
-            <p>Use darker tones for backgrounds and body text on light surfaces. Use brighter tones for graphics and accents on dark backgrounds.</p>
-          </article>
+        <div class="section__main">
+          <p class="section__label section__label--num">01</p>
+          <h2 class="section__title">Brand at a glance</h2>
+          <p class="section__desc brand-glance__intro">Six principles behind how HAI looks, feels, and adapts.</p>
+
+          <div class="brand-glance">
+            <div class="brand-glance__group">
+              <div class="brand-glance__grid brand-glance__grid--4">
+                <article class="brand-glance__card">
+                  <h3 class="brand-glance__card-title">Human-centered</h3>
+                  <p class="brand-glance__card-text">Warmth and accessibility in how HAI presents AI and its impact.</p>
+                </article>
+                <article class="brand-glance__card">
+                  <h3 class="brand-glance__card-title">Interdisciplinary</h3>
+                  <p class="brand-glance__card-text">Disciplines meeting in the same room&mdash;a defining visual idea.</p>
+                </article>
+                <article class="brand-glance__card">
+                  <h3 class="brand-glance__card-title">Neutral&hellip;but flexible</h3>
+                  <p class="brand-glance__card-text">Measured, clear visuals that reinforce rigorous, objective insight.</p>
+                </article>
+                <article class="brand-glance__card">
+                  <h3 class="brand-glance__card-title">Field-defining</h3>
+                  <p class="brand-glance__card-text">Academic authority and ambition that elevates HAI&rsquo;s presence.</p>
+                </article>
+              </div>
+            </div>
+
+            <div class="brand-glance__group">
+              <div class="brand-glance__grid brand-glance__grid--2">
+                <article class="brand-glance__card">
+                  <h3 class="brand-glance__card-title">Different tones, one HAI</h3>
+                  <p class="brand-glance__card-text">Recognizable across audiences and levels of formality.</p>
+                </article>
+                <article class="brand-glance__card">
+                  <h3 class="brand-glance__card-title">Stanford-connected, HAI-distinct</h3>
+                  <p class="brand-glance__card-text">Clear place within Stanford without losing a distinctive presence.</p>
+                </article>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="colors" class="section section--tint">
       <div class="section__inner">
+        <div class="section__main">
         <div class="section__header">
           <div>
-            <p class="section__label">02 · Colors</p>
+            <p class="section__label section__label--num">02</p>
             <h2 class="section__title">Brand colors</h2>
             <p class="section__desc">Swatches for the primary palette. Click a color to copy hex or RGB.</p>
           </div>
-          <a class="btn btn--small" href="https://drive.google.com/file/d/1r-Xydi-xZ27yYa-YcQNX86g302GKBKNt/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download .ase swatches</a>
         </div>
 
         <h3 class="subsection__title">Primary &amp; secondary</h3>
-        <p class="subsection__hint">Darker tones ? backgrounds &amp; text on neutrals · Brighter tones ? graphics &amp; text on dark backgrounds</p>
-        <div class="color-grid" id="primary-colors"></div>
+        <p class="subsection__hint">Darker tones for backgrounds &amp; text on neutrals. Brighter tones for graphics &amp; text on dark backgrounds</p>
+        <div id="primary-colors"></div>
 
         <h3 class="subsection__title">Accents</h3>
         <div class="color-grid color-grid--compact" id="accent-colors"></div>
@@ -78,72 +114,247 @@
         <h3 class="subsection__title">Neutral backgrounds</h3>
         <div class="color-grid color-grid--compact" id="neutral-colors"></div>
 
-        <aside class="callout">
-          <h3>Stanford Red</h3>
-          <p>Mix orange with colors from the purple/magenta families to reach cardinal red when a Stanford connection is needed. Avoid pairing two cool tones (blues + teals) or overly dark combinations.</p>
+        <aside class="callout callout--stanford-red">
+          <div class="stanford-red-header">
+            <h3>Stanford Cardinal Red</h3>
+            <button type="button" class="stanford-cardinal-red-swatch" id="stanford-cardinal-red-swatch" title="Click to copy hex">
+              <img src="assets/stanford-red/cardinal-red-dot.svg" alt="" class="stanford-cardinal-red-swatch__dot" width="14" height="14" aria-hidden="true">
+              <span class="stanford-cardinal-red-swatch__hex">#8C1515</span>
+            </button>
+          </div>
+          <p>Mix orange with colors from the purple/magenta families to reach cardinal red when a Stanford connection is needed.</p>
+          <div class="stanford-red-examples" id="stanford-red-examples" aria-label="Stanford Cardinal Red color mix examples"></div>
+          <div class="stanford-red-dont">
+            <h4 class="do-dont-heading stanford-red-dont__heading">
+              <svg class="do-dont-heading__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+                <path d="M1.02661 1.02661L11.915 11.915" stroke="#F04444" stroke-width="2.90358"/>
+                <path d="M1.02637 11.915L11.9148 1.02661" stroke="#F04444" stroke-width="2.90358"/>
+              </svg>
+              Avoid pairing two cool tones (blues + teals) or overly dark combinations.
+            </h4>
+            <div class="stanford-red-dont-examples" id="stanford-red-dont-examples" aria-label="Stanford Cardinal Red combinations to avoid"></div>
+          </div>
+          <div class="stanford-red-blend-mode">
+            <img src="assets/stanford-red/blend-mode-intersect.png" alt="" class="stanford-red-blend-mode__badge" width="120" height="32">
+            <span class="stanford-red-blend-mode__note">Use Intersect, not Multiply</span>
+          </div>
+        </aside>
+        </div>
+        <aside class="section__resources" aria-label="Colors resources">
+          <p class="section__resources-label">Resources</p>
+          <ul class="section__resources-list">
+            <li><a href="https://drive.google.com/file/d/1r-Xydi-xZ27yYa-YcQNX86g302GKBKNt/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download .ase swatches</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="gradients" class="section">
+      <div class="section__inner">
+        <div class="section__main">
+        <div class="section__header">
+          <div>
+            <p class="section__label section__label--num">03</p>
+            <h2 class="section__title">Gradients</h2>
+            <p class="section__desc">Graphic gradients should combine colors that sit near each other on the brand rainbow. As a rule of thumb, if you would see two colors next to each other in a rainbow, they are OK to combine. These rules are built into the generator tools and summarized below.</p>
+          </div>
+        </div>
+
+        <div class="gradient-pairing-layout">
+          <div class="gradient-pairing-matrix-wrap">
+            <div class="gradient-pairing-matrix" id="gradient-pairing-matrix" aria-label="Allowed and disallowed graphic gradient pairings"></div>
+          </div>
+        </div>
+
+        <div class="gradient-checker" id="gradient-checker">
+          <h3 class="subsection__title gradient-checker__title">
+            <svg class="gradient-checker__title-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0ZM8.94 6.94a.75.75 0 1 1-1.061-1.061 3 3 0 1 1 2.871 5.026v.345a.75.75 0 0 1-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 1 0 8.94 6.94ZM10 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
+            </svg>
+            Check a pairing
+          </h3>
+          <p class="subsection__hint">Choose two brand colors to preview the blend and see whether the pairing is allowed.</p>
+          <div class="gradient-checker__body">
+            <div class="gradient-checker__controls">
+              <fieldset class="gradient-checker__picker">
+                <legend class="gradient-checker__label">First Color</legend>
+                <div class="gradient-checker__swatches" id="gradient-check-swatches-a" role="group" aria-label="First Color"></div>
+              </fieldset>
+              <fieldset class="gradient-checker__picker">
+                <legend class="gradient-checker__label">Second Color</legend>
+                <div class="gradient-checker__swatches" id="gradient-check-swatches-b" role="group" aria-label="Second Color"></div>
+              </fieldset>
+            </div>
+            <div class="gradient-checker__result">
+              <div class="gradient-checker__preview-wrap">
+                <div class="gradient-checker__preview" id="gradient-check-preview" aria-hidden="true"></div>
+                <div class="gradient-checker__slash" id="gradient-check-slash" aria-hidden="true"></div>
+              </div>
+              <div class="gradient-checker__verdict" id="gradient-check-verdict" role="status" aria-live="polite"></div>
+            </div>
+          </div>
+        </div>
+
+        <hr class="section-divider">
+
+        <h2 class="section__title section__title--subsection">Linear gradients in backgrounds</h2>
+        <p class="section__desc section__desc--subsection">Gradients add color and texture without distraction. Use high-contrast blends for hero graphics; low-contrast blends for recessive background fields.</p>
+
+        <p class="gradient-lead">Linear gradients appear throughout the brand as a quick way to bring color and texture into an asset without it feeling busy. It is recommended to use a <strong>light or dark tone for the large middle portion</strong> of the gradient so copy and graphics stay readable.</p>
+
+        <div class="gradient-rules">
+          <article class="gradient-rule gradient-rule--do">
+            <h3 class="do-dont-heading">
+              <svg class="do-dont-heading__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+                <path d="M1.08887 5.19653L6.73657 10.8442L16.4917 1.08911" stroke="#06A35C" stroke-width="3.08057"/>
+              </svg>
+              Do
+            </h3>
+            <p>Weight gradient stop points around the edges so transitions happen quickly at the top and bottom, leaving a stable tone in the middle.</p>
+            <div class="gradient-stop-diagram gradient-stop-diagram--do" aria-hidden="true">
+              <span class="gradient-stop-diagram__bar"></span>
+              <span class="gradient-stop-diagram__marker gradient-stop-diagram__marker--1"></span>
+              <span class="gradient-stop-diagram__marker gradient-stop-diagram__marker--2"></span>
+              <span class="gradient-stop-diagram__marker gradient-stop-diagram__marker--3"></span>
+              <span class="gradient-stop-diagram__marker gradient-stop-diagram__marker--4"></span>
+            </div>
+          </article>
+          <article class="gradient-rule gradient-rule--dont">
+            <h3 class="do-dont-heading">
+              <svg class="do-dont-heading__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+                <path d="M1.02661 1.02661L11.915 11.915" stroke="#F04444" stroke-width="2.90358"/>
+                <path d="M1.02637 11.915L11.9148 1.02661" stroke="#F04444" stroke-width="2.90358"/>
+              </svg>
+              Don&rsquo;t
+            </h3>
+            <ul>
+              <li>Distribute stops evenly across the gradient (e.g. 0%, 50%, 100%)</li>
+              <li>Use overly neon or chaotic color pairings</li>
+            </ul>
+            <div class="gradient-stop-diagram gradient-stop-diagram--dont" aria-hidden="true">
+              <span class="gradient-stop-diagram__bar"></span>
+              <span class="gradient-stop-diagram__marker gradient-stop-diagram__marker--even gradient-stop-diagram__marker--1"></span>
+              <span class="gradient-stop-diagram__marker gradient-stop-diagram__marker--even gradient-stop-diagram__marker--2"></span>
+              <span class="gradient-stop-diagram__marker gradient-stop-diagram__marker--even gradient-stop-diagram__marker--3"></span>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="subsection__title">Example combinations</h3>
+        <p class="subsection__hint">These are suggestions&mdash;more pairings are possible using the brand palette above. Click a color dot to swap it, or hover the preview to copy CSS or download a PNG.</p>
+        <div class="gradient-examples" id="gradient-examples"></div>
+
+        <details class="drawer">
+          <summary class="drawer__summary">
+            <span class="drawer__heading">
+              <span class="drawer__title">Gradient generator</span>
+              <span class="drawer__badge">Experimental</span>
+            </span>
+            <span class="drawer__chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="drawer__panel">
+            <p class="subsection__hint drawer__hint">Generates a random on-brand gradient with edge-weighted stops. Click the preview to copy CSS.</p>
+            <div class="gradient-generator">
+              <canvas id="gradient-canvas" class="gradient-generator__canvas" width="960" height="360" aria-label="Generated gradient preview"></canvas>
+              <div class="gradient-generator__meta">
+                <span class="gradient-badge" id="gradient-type-badge">Low contrast</span>
+                <div class="gradient-stops" id="gradient-stops" aria-label="Color stops"></div>
+              </div>
+              <div class="gradient-generator__controls">
+                <button type="button" class="btn btn--primary" id="generate-gradient">Generate gradient</button>
+                <button type="button" class="btn btn--ghost" id="copy-gradient-css">Copy CSS</button>
+              </div>
+              <pre class="gradient-generator__code" id="gradient-css-output"></pre>
+            </div>
+          </div>
+        </details>
+        </div>
+        <aside class="section__resources" aria-label="Gradients resources">
+          <p class="section__resources-label">Resources</p>
+          <ul class="section__resources-list">
+            <li><a href="https://stanford-hai-generators.vercel.app/" target="_blank" rel="noopener noreferrer">Open gradient generator</a></li>
+            <li><a href="#colors">Brand colors</a></li>
+            <li><a href="#graphics">Generators &amp; templates</a></li>
+          </ul>
         </aside>
       </div>
     </section>
 
     <section id="typography" class="section">
       <div class="section__inner">
+        <div class="section__main">
         <div class="section__header">
           <div>
-            <p class="section__label">04 · Typography</p>
+            <p class="section__label section__label--num">04</p>
             <h2 class="section__title">Type system</h2>
-            <p class="section__desc">Circular for sans-serif UI and Marist for editorial headlines. Resize Marist slightly larger when pairing — different x-heights.</p>
+            <p class="section__desc">Circular for sans-serif UI and Marist for editorial headlines. Resize Marist slightly larger when pairing &mdash; different x-heights.</p>
           </div>
         </div>
 
+        <h3 class="subsection__title">Typeface overview</h3>
+        <p class="subsection__hint">Licensed brand fonts for Stanford HAI communications. Use only the weights listed below.</p>
+        <div class="typeface-overview" id="typeface-overview"></div>
+
         <div class="type-showcase">
           <div class="type-block">
-            <p class="type-block__role">Primary sans · Circular</p>
+            <p class="type-block__role">Primary sans &mdash; Circular</p>
             <p class="type-sample type-sample--circular-heading">Scientific Discovery</p>
             <p class="type-sample type-sample--circular-sub">New AI tools find patterns in data</p>
             <p class="type-sample type-sample--circular-body">AI doesn't just speed up discovery. It can facilitate collaboration across disciplines, review literature, generate hypotheses, analyze data, and validate theories.</p>
-            <p class="type-eyebrow">Today's seminar</p>
+            <p class="type-eyebrow">Today&rsquo;s Seminar</p>
             <ul class="type-weights">
-              <li>Bold</li>
-              <li>Medium</li>
-              <li>Book</li>
-              <li>Regular</li>
+              <li class="type-weight type-weight--circular-bold">Circular Bold</li>
+              <li class="type-weight type-weight--circular-medium">Circular Medium</li>
+              <li class="type-weight type-weight--circular-book">Circular Book</li>
+              <li class="type-weight type-weight--circular-regular">Circular Regular</li>
             </ul>
           </div>
           <div class="type-block">
-            <p class="type-block__role">Primary serif · Marist</p>
+            <p class="type-block__role">Primary serif &mdash; Marist</p>
             <p class="type-sample type-sample--marist-heading">Scientific Discovery</p>
             <p class="type-sample type-sample--marist-sub">New AI tools find patterns in data</p>
             <p class="type-sample type-sample--marist-body">AI doesn't just speed up discovery. It can facilitate collaboration across disciplines, review literature, generate hypotheses, analyze data, and validate theories.</p>
             <p class="type-note type-note--warn">Don't use Marist as an eyebrow label.</p>
             <ul class="type-weights">
-              <li>Bold</li>
-              <li>Medium</li>
-              <li>Book</li>
+              <li class="type-weight type-weight--marist-bold">Marist Bold</li>
+              <li class="type-weight type-weight--marist-medium">Marist Medium</li>
+              <li class="type-weight type-weight--marist-book">Marist Book</li>
             </ul>
           </div>
         </div>
 
         <h3 class="subsection__title">Type scale (Circular)</h3>
         <div class="scale-table">
-          <div class="scale-row"><span>Eyebrow</span><span>1× · uppercase pill label</span></div>
-          <div class="scale-row"><span>Heading</span><span>6× · 120px / 132px leading</span></div>
-          <div class="scale-row"><span>Subheading</span><span>2.25× · 45px / 49px</span></div>
-          <div class="scale-row"><span>Body</span><span>1.25× · 25px / 27.5px · 110% leading</span></div>
+          <div class="scale-row"><span>Eyebrow</span><span>1 rem &mdash; uppercase pill label</span></div>
+          <div class="scale-row"><span>Heading</span><span>6 rem &mdash; 120px / 132px leading</span></div>
+          <div class="scale-row"><span>Subheading</span><span>2.25 rem &mdash; 45px / 49px</span></div>
+          <div class="scale-row"><span>Body</span><span>1.25 rem &mdash; 25px / 27.5px &mdash; 110% leading</span></div>
         </div>
 
         <h3 class="subsection__title">Google Fonts fallback</h3>
         <p class="subsection__hint">Use in Google Workspace when brand fonts aren't available. No Prisma equivalent.</p>
         <div class="fallback-table" id="fallback-table"></div>
+        <div class="fallback-kit" id="fallback-kit"></div>
+        </div>
+        <aside class="section__resources" aria-label="Typography resources">
+          <p class="section__resources-label">Resources</p>
+          <ul class="section__resources-list">
+            <li><a href="assets/fonts/hai-brand-fonts.zip" download="hai-brand-fonts.zip">Download all fonts</a></li>
+            <li><a href="https://lineto.com/typefaces/circular" target="_blank" rel="noopener noreferrer">Circular (Lineto)</a></li>
+            <li><a href="https://abcdinamo.com/typefaces/marist" target="_blank" rel="noopener noreferrer">Marist (Dinamo)</a></li>
+          </ul>
+        </aside>
       </div>
     </section>
 
     <section id="logo" class="section section--tint">
       <div class="section__inner">
+        <div class="section__main">
         <div class="section__header">
           <div>
-            <p class="section__label">03 · Logo</p>
+            <p class="section__label section__label--num">03</p>
             <h2 class="section__title">Logo system</h2>
-            <p class="section__desc">Primary logomark, horizontal &amp; vertical lockups, centers &amp; labs lockups, pillar lockups, and collab lockups.</p>
+            <p class="section__desc">Primary logomark plus horizontal and vertical lockups. See the lockup sections below for collab, centers &amp; labs, and pillar variants.</p>
           </div>
         </div>
 
@@ -182,16 +393,332 @@
             </figcaption>
           </figure>
         </div>
+        </div>
+        <aside class="section__resources" aria-label="Logo resources">
+          <p class="section__resources-label">Resources</p>
+          <ul class="section__resources-list">
+            <li><a href="assets/logomark.svg" download="hai-logomark.svg">Download logomark (SVG)</a></li>
+            <li><a href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-9367" target="_blank" rel="noopener noreferrer">Logo lockup builder (Figma)</a></li>
+            <li><a href="#collab-lockups">Collab lockups</a></li>
+            <li><a href="#centers-labs-lockups">Centers &amp; labs lockups</a></li>
+            <li><a href="#pillar-lockups">Pillar lockups</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="collab-lockups" class="section">
+      <div class="section__inner">
+        <div class="section__main">
+          <p class="section__label">Logo &mdash; Collab lockups</p>
+          <h2 class="section__title">Collab lockups</h2>
+          <p class="section__desc">When displaying the HAI logo alongside another institution, use these lockup rules.</p>
+          <div class="lockup-section__actions">
+            <a class="btn btn--small" href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-10116" target="_blank" rel="noopener noreferrer">Open collab lockup components (Figma)</a>
+          </div>
+
+          <div class="collab-separator-examples">
+            <div class="collab-subsection">
+              <h3 class="subsection__title">Separator element on light</h3>
+              <p class="subsection__hint">On light backgrounds, the &times; separator is <strong>#000 at 50% opacity</strong>. Logos use their standard dark versions.</p>
+              <figure class="collab-subsection__figure collab-subsection__figure--separator">
+                <img src="assets/lockups/collab-separator-light.png" alt="Collab lockup separator on a light background: black cross at 50% opacity" loading="lazy">
+              </figure>
+            </div>
+
+            <div class="collab-subsection">
+              <h3 class="subsection__title">Separator element on dark</h3>
+              <p class="subsection__hint">On dark backgrounds, the &times; separator is <strong>#FFF at 50% opacity</strong>. Logos are reversed (white).</p>
+              <figure class="collab-subsection__figure collab-subsection__figure--separator">
+                <img src="assets/lockups/collab-separator-dark.png" alt="Collab lockup separator on a dark background: white cross at 50% opacity" loading="lazy">
+              </figure>
+            </div>
+          </div>
+
+          <div class="collab-subsection">
+            <h3 class="subsection__title">Alignment &amp; spacing</h3>
+            <p class="subsection__hint">Define <strong>x</strong> as the thickness of the vertical bars in the HAI logomark.</p>
+            <ul class="lockup-guidelines">
+              <li>Maintain <strong>1x</strong> clear space around the entire lockup.</li>
+              <li>Leave <strong>2x</strong> between the HAI logo and the &times; separator, and another <strong>2x</strong> between the separator and the partner logo.</li>
+              <li><strong>Multi-line partner logos:</strong> align with the HAI logomark (top and bottom bounds).</li>
+              <li><strong>Single-line partner logos:</strong> should not exceed 80% of the height of the HAI logomark; center vertically.</li>
+            </ul>
+            <div class="collab-guideline-figures">
+              <figure class="collab-subsection__figure">
+                <img src="assets/lockups/collab-alignment.png" alt="Collab lockup alignment: multi-line partner logos align with the HAI logomark; single-line logos stay within 80% of logomark height" loading="lazy">
+              </figure>
+              <figure class="collab-subsection__figure">
+                <img src="assets/lockups/collab-spacing.png" alt="Collab lockup spacing: 2x clear space on each side of the separator" loading="lazy">
+              </figure>
+            </div>
+          </div>
+
+          <div class="collab-subsection">
+            <h3 class="subsection__title">Examples</h3>
+            <p class="subsection__hint">Multi-line and single-line partner logos on light and dark backgrounds.</p>
+            <div class="collab-examples">
+              <figure class="collab-subsection__figure">
+                <img src="assets/lockups/collab-example-hoover.png" alt="Collab lockup with Hoover Institution on a light background" loading="lazy">
+              </figure>
+              <figure class="collab-subsection__figure">
+                <img src="assets/lockups/collab-example-reglab.png" alt="Collab lockup with RegLab on a light background" loading="lazy">
+              </figure>
+              <figure class="collab-subsection__figure">
+                <img src="assets/lockups/collab-example-mckinsey.png" alt="Collab lockup with McKinsey on a dark background" loading="lazy">
+              </figure>
+            </div>
+          </div>
+        </div>
+        <aside class="section__resources" aria-label="Collab lockups resources">
+          <p class="section__resources-label">Resources</p>
+          <ul class="section__resources-list">
+            <li><a href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-10116" target="_blank" rel="noopener noreferrer">Collab lockup components (Figma)</a></li>
+            <li><a href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-9367" target="_blank" rel="noopener noreferrer">Logo lockup builder (Figma)</a></li>
+            <li><a href="https://www.figma.com/design/i5oYzzmzESojGcp37stFCp/-HAI--Guidelines?node-id=269-74428" target="_blank" rel="noopener noreferrer">Separator on light (Figma)</a></li>
+            <li><a href="https://www.figma.com/design/i5oYzzmzESojGcp37stFCp/-HAI--Guidelines?node-id=276-1411" target="_blank" rel="noopener noreferrer">Separator on dark (Figma)</a></li>
+            <li><a href="#logo">Logo system</a></li>
+            <li><a href="#centers-labs-lockups">Centers &amp; labs lockups</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="centers-labs-lockups" class="section section--tint">
+      <div class="section__inner">
+        <div class="section__main">
+          <p class="section__label">Logo &mdash; Centers &amp; labs</p>
+          <h2 class="section__title">Centers and labs lockups</h2>
+          <p class="section__desc">Center and lab lockups have a lot of variability. They can be created with three different weights within Circular or Marist. Any of the primary brand colors can be used.</p>
+          <div class="lockup-section__actions">
+            <a class="btn btn--small" href="https://drive.google.com/drive/folders/13ETftz1ioIaJODjHB91nXH-RfKzjBfmV?usp=sharing" target="_blank" rel="noopener noreferrer">See all existing lockups</a>
+            <a class="btn btn--ghost btn--small" href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-9367" target="_blank" rel="noopener noreferrer">Build a custom lockup (Figma)</a>
+          </div>
+
+          <div class="centers-lockup-intro">
+            <div class="collab-subsection">
+              <h3 class="subsection__title">Lockup construction</h3>
+              <p class="subsection__hint">Define <strong>x</strong> as the line height of the center or lab name.</p>
+              <ul class="lockup-guidelines">
+                <li>Place the HAI logomark above the center or lab name, left-aligned.</li>
+                <li>The logomark height is <strong>1.14&times;</strong> the line height (<strong>x</strong>) of the name text.</li>
+                <li>There is no limit to line count&mdash;text may wrap across multiple lines.</li>
+                <li>Target a minimum line width of ~8 characters and a maximum of ~18 characters per line.</li>
+              </ul>
+              <figure class="collab-subsection__figure collab-subsection__figure--construction">
+                <img src="assets/lockups/centers-labs-construction.png" alt="Center lockup construction diagram showing logomark height at 1.14x line height, minimum width of about 8 characters, and maximum width of about 18 characters per line" loading="lazy">
+              </figure>
+            </div>
+
+            <div class="collab-subsection">
+              <h3 class="subsection__title">Typeface examples</h3>
+              <p class="subsection__hint">The center lockups can be created with any of the styles below.</p>
+              <div class="centers-lockup-grid centers-lockup-grid--typeface" role="list">
+              <figure class="centers-lockup-card" role="listitem">
+                <figcaption>Marist Book</figcaption>
+                <div class="center-lockup center-lockup--marist center-lockup--book">
+                  <span class="center-lockup__mark" aria-hidden="true"></span>
+                  <p class="center-lockup__name">Stanford<br>AI Lab</p>
+                </div>
+              </figure>
+              <figure class="centers-lockup-card" role="listitem">
+                <figcaption>Marist Medium</figcaption>
+                <div class="center-lockup center-lockup--marist center-lockup--medium">
+                  <span class="center-lockup__mark" aria-hidden="true"></span>
+                  <p class="center-lockup__name">Stanford<br>AI Lab</p>
+                </div>
+              </figure>
+              <figure class="centers-lockup-card" role="listitem">
+                <figcaption>Marist Bold</figcaption>
+                <div class="center-lockup center-lockup--marist center-lockup--bold">
+                  <span class="center-lockup__mark" aria-hidden="true"></span>
+                  <p class="center-lockup__name">Stanford<br>AI Lab</p>
+                </div>
+              </figure>
+              <figure class="centers-lockup-card" role="listitem">
+                <figcaption>Circular Book</figcaption>
+                <div class="center-lockup center-lockup--circular center-lockup--book">
+                  <span class="center-lockup__mark" aria-hidden="true"></span>
+                  <p class="center-lockup__name">Stanford<br>AI Lab</p>
+                </div>
+              </figure>
+              <figure class="centers-lockup-card" role="listitem">
+                <figcaption>Circular Medium</figcaption>
+                <div class="center-lockup center-lockup--circular center-lockup--medium">
+                  <span class="center-lockup__mark" aria-hidden="true"></span>
+                  <p class="center-lockup__name">Stanford<br>AI Lab</p>
+                </div>
+              </figure>
+              <figure class="centers-lockup-card" role="listitem">
+                <figcaption>Circular Black</figcaption>
+                <div class="center-lockup center-lockup--circular center-lockup--black">
+                  <span class="center-lockup__mark" aria-hidden="true"></span>
+                  <p class="center-lockup__name">Stanford<br>AI Lab</p>
+                </div>
+              </figure>
+              </div>
+            </div>
+          </div>
+
+          <aside class="callout centers-figma-callout">
+            <h3 class="subsection__title">Figma component system</h3>
+            <p class="subsection__hint">The center lockup component lives in Figma&mdash;select the typeface, weight, and name to generate a lockup without rebuilding from scratch.</p>
+            <div class="centers-figma-figures">
+              <figure class="collab-subsection__figure">
+                <img src="assets/lockups/centers-labs-figma-panel.png" alt="Figma Center Lockup component panel with typeface, weight, and text fields" loading="lazy">
+              </figure>
+              <figure class="collab-subsection__figure">
+                <img src="assets/lockups/centers-labs-figma-weights.png" alt="Figma Center Names Typeface weight options for center lockups" loading="lazy">
+              </figure>
+            </div>
+          </aside>
+        </div>
+        <aside class="section__resources" aria-label="Centers and labs lockups resources">
+          <p class="section__resources-label">Resources</p>
+          <ul class="section__resources-list">
+            <li><a href="https://drive.google.com/drive/folders/13ETftz1ioIaJODjHB91nXH-RfKzjBfmV?usp=sharing" target="_blank" rel="noopener noreferrer">Existing lockups (Drive)</a></li>
+            <li><a href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-9367" target="_blank" rel="noopener noreferrer">Build custom lockup (Figma)</a></li>
+            <li><a href="https://www.figma.com/design/i5oYzzmzESojGcp37stFCp/-HAI--Guidelines?node-id=199-7907" target="_blank" rel="noopener noreferrer">Centers &amp; labs lockups (Figma)</a></li>
+            <li><a href="#collab-lockups">Collab lockups</a></li>
+            <li><a href="#pillar-lockups">Pillar lockups</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="pillar-lockups" class="section">
+      <div class="section__inner">
+        <div class="section__main">
+        <div class="lockup-section">
+          <div class="lockup-section__copy">
+            <p class="section__label">Logo &mdash; Pillar lockups</p>
+            <h2 class="section__title">Pillar lockups</h2>
+            <p class="section__desc">Use the following guidelines when building and using the pillar lockups.</p>
+            <div class="lockup-section__actions">
+              <a class="btn btn--small" href="https://drive.google.com/drive/folders/1L986_TqxBPnaHlDvTjCHWZiD04wkQx16?usp=sharing" target="_blank" rel="noopener noreferrer">See all existing lockups</a>
+              <a class="btn btn--ghost btn--small" href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-9367" target="_blank" rel="noopener noreferrer">Build a custom lockup (Figma)</a>
+            </div>
+
+            <h3 class="subsection__title">Architecture &amp; clear space</h3>
+            <ul class="lockup-guidelines">
+              <li>Pillar lockups use <strong>Circular Thin</strong> for the pillar name, which optically matches the weight of the lines within the logomark.</li>
+              <li>Size the pillar name to match the height of the logomark from baseline to cap height.</li>
+              <li>Maintain equal spacing (<strong>x</strong>) on both sides of the vertical divider between the logomark and pillar name.</li>
+            </ul>
+
+            <h3 class="subsection__title">Color</h3>
+            <p class="subsection__hint">Pillar lockup color is flexible to its application&mdash;it can match a graphic or act as an accent.</p>
+            <ul class="lockup-guidelines">
+              <li><strong>Image backgrounds:</strong> use a light or white lockup over photography or gradients.</li>
+              <li><strong>Colored backgrounds:</strong> monochrome (single-color) or duotone (logomark + pillar name in related hues).</li>
+              <li><strong>White backgrounds:</strong> duotone lockups using two brand colors work well.</li>
+            </ul>
+          </div>
+          <figure class="lockup-section__figure">
+            <img src="assets/lockups/pillar-lockups.png" alt="Pillar lockup architecture, clear space, and color application examples" loading="lazy">
+          </figure>
+        </div>
+        </div>
+        <aside class="section__resources" aria-label="Pillar lockups resources">
+          <p class="section__resources-label">Resources</p>
+          <ul class="section__resources-list">
+            <li><a href="https://drive.google.com/drive/folders/1L986_TqxBPnaHlDvTjCHWZiD04wkQx16?usp=sharing" target="_blank" rel="noopener noreferrer">Existing lockups (Drive)</a></li>
+            <li><a href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-9367" target="_blank" rel="noopener noreferrer">Build custom lockup (Figma)</a></li>
+            <li><a href="#logo">Logo system</a></li>
+            <li><a href="#centers-labs-lockups">Centers &amp; labs lockups</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section id="graphics" class="section">
+      <div class="section__inner">
+        <div class="section__main">
+        <div class="section__header">
+          <div>
+            <p class="section__label section__label--num">05</p>
+            <h2 class="section__title">Generators &amp; templates</h2>
+            <p class="section__desc">Create on-brand graphics with the generator tools, then drop them into Canva templates as hero or background elements.</p>
+          </div>
+          <a class="btn btn--small" href="https://stanford-hai-generators.vercel.app/" target="_blank" rel="noopener noreferrer">Open generators</a>
+        </div>
+
+        <h3 class="subsection__title">Generator tools</h3>
+        <p class="subsection__hint">Eight tools cover color fields, line work, and image-driven patterns. Each opens directly in the studio.</p>
+        <div class="generator-grid" id="generator-grid"></div>
+
+        <h3 class="subsection__title">Usage types</h3>
+        <p class="subsection__hint">Graphics fall into two roles. The same export from any generator can serve either one&mdash;what changes is how you place it in the layout.</p>
+        <div class="usage-demos">
+          <article class="usage-demo">
+            <figure class="usage-demo__figure">
+              <img src="assets/graphics/usage-background.png" alt="Event promo with copy overlaid on a full-bleed graphic pattern" loading="lazy">
+            </figure>
+            <div class="usage-demo__copy">
+              <h4>Background graphics</h4>
+              <p>The graphic fills the canvas (or a large zone) and copy sits directly on top. Choose darker or denser palette tones so white or light type stays readable.</p>
+              <ul>
+                <li>Full-bleed event promos and social posts</li>
+                <li>Report covers with title overlaid on pattern</li>
+                <li>Edge-to-edge fields behind logos and dates</li>
+              </ul>
+              <p class="usage-demo__rule"><strong>Rule:</strong> text overlaps the graphic.</p>
+            </div>
+          </article>
+          <article class="usage-demo">
+            <figure class="usage-demo__figure">
+              <img src="assets/graphics/usage-hero.png" alt="News card with the graphic in its own zone and copy in a separate area below" loading="lazy">
+            </figure>
+            <div class="usage-demo__copy">
+              <h4>Hero graphics</h4>
+              <p>The graphic is a focal point in its own zone. Copy lives in a separate solid area&mdash;typically the upper half or an open field&mdash;so nothing crosses the artwork.</p>
+              <ul>
+                <li>Seminar posts with graphic below the headline block</li>
+                <li>Presentation slides with accent in a corner</li>
+                <li>Social layouts where type sits on a flat color field</li>
+              </ul>
+              <p class="usage-demo__rule"><strong>Rule:</strong> no text overlaps the graphic.</p>
+            </div>
+          </article>
+        </div>
+
+        <h3 class="subsection__title">Graphics in templates</h3>
+        <p class="subsection__hint">The same export can drop into any Canva layout. Each format has a typical role and placement zone&mdash;hero or background.</p>
+        <div class="template-usage-table" id="template-usage-table"></div>
+
+        <h3 class="subsection__title">Canva templates</h3>
+        <p class="subsection__hint">Finished layouts live in the Stanford HAI Brand Kit. Export a PNG from the generator, then replace the placeholder in the matching template.</p>
+        <aside class="callout callout--canva">
+          <h3>Stanford HAI Brand Kit</h3>
+          <p>Templates require Stanford team Canva access. Open <strong>Brand &rarr; Stanford HAI</strong> to browse approved layouts, logos, colors, and fonts. If you need access, contact your HAI comms lead.</p>
+        </aside>
+        <div class="template-groups" id="template-groups"></div>
+        </div>
+        <aside class="section__resources" aria-label="Graphics resources">
+          <p class="section__resources-label">Resources</p>
+          <ul class="section__resources-list">
+            <li><a href="https://stanford-hai-generators.vercel.app/" target="_blank" rel="noopener noreferrer">Open generators</a></li>
+            <li><a href="https://www.canva.com/brand" target="_blank" rel="noopener noreferrer">Canva Brand Kit</a></li>
+            <li><a href="#gradients">Gradient pairings</a></li>
+            <li><a href="#colors">Brand colors</a></li>
+          </ul>
+        </aside>
       </div>
     </section>
 
     <section id="rules" class="section">
       <div class="section__inner">
+        <div class="section__main">
         <p class="section__label">Essentials</p>
         <h2 class="section__title">Do &amp; don't</h2>
         <div class="rules-grid">
           <article class="rule rule--do">
-            <h3>Do</h3>
+            <h3 class="do-dont-heading">
+              <svg class="do-dont-heading__icon" xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+                <path d="M1.08887 5.19653L6.73657 10.8442L16.4917 1.08911" stroke="#06A35C" stroke-width="3.08057"/>
+              </svg>
+              Do
+            </h3>
             <ul>
               <li>Use darker palette tones for backgrounds and long-form text on light surfaces</li>
               <li>Use brighter tones for hero graphics and accent type on dark backgrounds</li>
@@ -201,30 +728,54 @@
             </ul>
           </article>
           <article class="rule rule--dont">
-            <h3>Don't</h3>
+            <h3 class="do-dont-heading">
+              <svg class="do-dont-heading__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+                <path d="M1.02661 1.02661L11.915 11.915" stroke="#F04444" stroke-width="2.90358"/>
+                <path d="M1.02637 11.915L11.9148 1.02661" stroke="#F04444" stroke-width="2.90358"/>
+              </svg>
+              Don&rsquo;t
+            </h3>
             <ul>
               <li>Use Marist for small eyebrow or label text</li>
-              <li>Pair two cool-toned colors for Stanford Red mixes</li>
+              <li>Pair two cool-toned colors for Stanford Cardinal Red mixes</li>
               <li>Use overly dark color pairs that muddy together</li>
               <li>Stretch, recolor, or rebuild the logomark from scratch</li>
-              <li>Use Prisma in Google Workspace — no equivalent fallback exists</li>
+              <li>Use Prisma in Google Workspace &mdash; no equivalent fallback exists</li>
             </ul>
           </article>
         </div>
+        </div>
+        <aside class="section__resources" aria-label="Rules resources">
+          <p class="section__resources-label">Resources</p>
+          <ul class="section__resources-list">
+            <li><a href="#typography">Type system</a></li>
+            <li><a href="#logo">Logo system</a></li>
+            <li><a href="#colors">Brand colors</a></li>
+          </ul>
+        </aside>
       </div>
     </section>
 
     <section id="downloads" class="section section--tint">
       <div class="section__inner">
-        <p class="section__label">Resources</p>
-        <h2 class="section__title">Downloads &amp; links</h2>
-        <div class="download-grid" id="download-grid"></div>
+        <div class="section__main">
+          <p class="section__label">Resources</p>
+          <h2 class="section__title">Downloads &amp; links</h2>
+          <div class="download-grid" id="download-grid"></div>
+        </div>
+        <aside class="section__resources" aria-label="Downloads resources">
+          <p class="section__resources-label">Quick links</p>
+          <ul class="section__resources-list">
+            <li><a href="https://www.canva.com/brand" target="_blank" rel="noopener noreferrer">Canva Brand Kit</a></li>
+            <li><a href="assets/fonts/hai-brand-fonts.zip" download="hai-brand-fonts.zip">Download all fonts</a></li>
+          </ul>
+        </aside>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <p><strong>Stanford HAI</strong> · Brand Guidelines 2026 · Quick Start Reference</p>
+    <p><strong>Stanford HAI</strong> &mdash; Brand Guidelines 2026 &mdash; Quick Start Reference</p>
     <p class="footer__note">For internal Stanford HAI use. Licensed fonts (Circular, Marist, Prisma) require separate procurement.</p>
   </footer>
 
