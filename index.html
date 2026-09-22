@@ -9,10 +9,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-view="basics">
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
+  <dialog class="resource-edit-modal" id="resource-edit-modal" aria-labelledby="resource-edit-title">
+    <form class="resource-edit-form" id="resource-edit-form" method="dialog">
+      <h2 class="resource-edit-form__title" id="resource-edit-title">Edit link</h2>
+      <label class="resource-edit-form__field">
+        <span class="resource-edit-form__label">Link</span>
+        <input type="text" class="resource-edit-form__input" id="resource-edit-href" required>
+      </label>
+      <label class="resource-edit-form__field">
+        <span class="resource-edit-form__label">Button text</span>
+        <input type="text" class="resource-edit-form__input" id="resource-edit-label" required>
+      </label>
+      <label class="resource-edit-form__field">
+        <span class="resource-edit-form__label">Icon</span>
+        <select class="resource-edit-form__input" id="resource-edit-icon">
+          <option value="download">Download</option>
+          <option value="generator">Generator</option>
+          <option value="pdf">PDF</option>
+          <option value="figma">Figma</option>
+          <option value="adobe">Adobe</option>
+          <option value="drive">Google Drive</option>
+          <option value="canva">Canva</option>
+        </select>
+      </label>
+      <div class="resource-edit-form__actions">
+        <button type="submit" class="btn btn--primary btn--small">Save</button>
+        <button type="button" class="btn btn--ghost btn--small" id="resource-edit-cancel">Cancel</button>
+        <button type="button" class="btn btn--ghost btn--small resource-edit-form__delete" id="resource-edit-delete" hidden>Delete</button>
+      </div>
+    </form>
+  </dialog>
+
   <header class="hero">
+    <div class="toolbar" role="toolbar" aria-label="Page options">
+      <div class="toolbar__items">
+        <label class="view-toggle">
+          <span class="view-toggle__label view-toggle__label--basics">Basics</span>
+          <input type="checkbox" class="view-toggle__input" id="designer-mode-toggle" aria-label="Designer mode">
+          <span class="view-toggle__track" aria-hidden="true"><span class="view-toggle__thumb"></span></span>
+          <span class="view-toggle__label view-toggle__label--designer">Designer</span>
+        </label>
+        <button type="button" class="toolbar-edit" id="edit-mode-toggle" aria-pressed="false" aria-label="Edit resources">
+          <svg class="toolbar-edit__icon toolbar-edit__icon--edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M13.488 2.513a1.75 1.75 0 0 0-2.475 0L6.75 6.774a2.75 2.75 0 0 0-.596.892l-.848 2.047a.75.75 0 0 0 .98.98l2.047-.848a2.75 2.75 0 0 0 .892-.596l4.261-4.262a1.75 1.75 0 0 0 0-2.474Z" />
+            <path d="M4.75 3.5c-.69 0-1.25.56-1.25 1.25v6.5c0 .69.56 1.25 1.25 1.25h6.5c.69 0 1.25-.56 1.25-1.25V9A.75.75 0 0 1 14 9v2.25A2.75 2.75 0 0 1 11.25 14h-6.5A2.75 2.75 0 0 1 2 11.25v-6.5A2.75 2.75 0 0 1 4.75 2H7a.75.75 0 0 1 0 1.5H4.75Z" />
+          </svg>
+          <svg class="toolbar-edit__icon toolbar-edit__icon--close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+            <path d="M3.72 3.72a.75.75 0 0 1 1.06 0L8 6.94l3.22-3.22a.75.75 0 1 1 1.06 1.06L9.06 8l3.22 3.22a.75.75 0 1 1-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 0 1-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 0 1 0-1.06Z" />
+          </svg>
+          <span class="toolbar-edit__label">EDIT</span>
+        </button>
+      </div>
+    </div>
     <div class="hero__inner">
       <div class="hero__logo" aria-label="Stanford University Human-Centered Artificial Intelligence">
         <img src="assets/hero-logomark.svg" alt="" class="hero__logo-mark" width="121" height="52" aria-hidden="true">
@@ -113,7 +164,7 @@
         <h3 class="subsection__title">Neutral backgrounds</h3>
         <div class="color-grid color-grid--compact" id="neutral-colors"></div>
 
-        <aside class="callout callout--stanford-red">
+        <aside class="callout callout--stanford-red designer-only">
           <div class="stanford-red-header">
             <h3>Stanford Cardinal Red</h3>
             <button type="button" class="stanford-cardinal-red-swatch" id="stanford-cardinal-red-swatch" title="Click to copy hex">
@@ -165,7 +216,7 @@
           </div>
         </div>
 
-        <div class="gradient-checker" id="gradient-checker">
+        <div class="gradient-checker designer-only" id="gradient-checker">
           <h3 class="subsection__title gradient-checker__title">
             <svg class="gradient-checker__title-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
               <path fill-rule="evenodd" d="M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0ZM8.94 6.94a.75.75 0 1 1-1.061-1.061 3 3 0 1 1 2.871 5.026v.345a.75.75 0 0 1-1.5 0v-.5c0-.72.57-1.172 1.081-1.287A1.5 1.5 0 1 0 8.94 6.94ZM10 15a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" clip-rule="evenodd" />
@@ -194,6 +245,7 @@
           </div>
         </div>
 
+        <div class="designer-only">
         <hr class="section-divider">
 
         <h2 class="section__title section__title--subsection">Linear gradients in backgrounds</h2>
@@ -238,12 +290,13 @@
             </div>
           </article>
         </div>
+        </div>
 
         <h3 class="subsection__title">Example combinations</h3>
         <p class="subsection__hint">These are suggestions&mdash;more pairings are possible using the brand palette above. Click a color dot to swap it, or hover the preview to copy CSS or download a PNG.</p>
         <div class="gradient-examples" id="gradient-examples"></div>
 
-        <details class="drawer">
+        <details class="drawer designer-only">
           <summary class="drawer__summary">
             <span class="drawer__heading">
               <span class="drawer__title">Gradient generator</span>
@@ -322,12 +375,14 @@
           </div>
         </div>
 
-        <h3 class="subsection__title">Type scale (Circular)</h3>
-        <div class="scale-table">
-          <div class="scale-row"><span>Eyebrow</span><span>1 rem &mdash; uppercase pill label</span></div>
-          <div class="scale-row"><span>Heading</span><span>6 rem &mdash; 120px / 132px leading</span></div>
-          <div class="scale-row"><span>Subheading</span><span>2.25 rem &mdash; 45px / 49px</span></div>
-          <div class="scale-row"><span>Body</span><span>1.25 rem &mdash; 25px / 27.5px &mdash; 110% leading</span></div>
+        <div class="designer-only">
+          <h3 class="subsection__title">Type scale (Circular)</h3>
+          <div class="scale-table">
+            <div class="scale-row"><span>Eyebrow</span><span>1 rem &mdash; uppercase pill label</span></div>
+            <div class="scale-row"><span>Heading</span><span>6 rem &mdash; 120px / 132px leading</span></div>
+            <div class="scale-row"><span>Subheading</span><span>2.25 rem &mdash; 45px / 49px</span></div>
+            <div class="scale-row"><span>Body</span><span>1.25 rem &mdash; 25px / 27.5px &mdash; 110% leading</span></div>
+          </div>
         </div>
 
         <h3 class="subsection__title">Google Fonts fallback</h3>
@@ -414,8 +469,8 @@
             <li><a href="assets/logomark.svg" download="hai-logomark.svg">Download logomark (SVG)</a></li>
             <li><a href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-9367" target="_blank" rel="noopener noreferrer">Logo lockup builder (Figma)</a></li>
             <li><a href="#collab-lockups">Collab lockups</a></li>
-            <li><a href="#centers-labs-lockups">Centers &amp; labs lockups</a></li>
-            <li><a href="#pillar-lockups">Pillar lockups</a></li>
+            <li class="designer-only"><a href="#centers-labs-lockups">Centers &amp; labs lockups</a></li>
+            <li class="designer-only"><a href="#pillar-lockups">Pillar lockups</a></li>
           </ul>
         </aside>
       </div>
@@ -535,13 +590,13 @@
             <li><a href="https://www.figma.com/design/i5oYzzmzESojGcp37stFCp/-HAI--Guidelines?node-id=269-74428" target="_blank" rel="noopener noreferrer">Separator on light (Figma)</a></li>
             <li><a href="https://www.figma.com/design/i5oYzzmzESojGcp37stFCp/-HAI--Guidelines?node-id=276-1411" target="_blank" rel="noopener noreferrer">Separator on dark (Figma)</a></li>
             <li><a href="#logo">Logo system</a></li>
-            <li><a href="#centers-labs-lockups">Centers &amp; labs lockups</a></li>
+            <li class="designer-only"><a href="#centers-labs-lockups">Centers &amp; labs lockups</a></li>
           </ul>
         </aside>
       </div>
     </section>
 
-    <section id="centers-labs-lockups" class="section section--tint">
+    <section id="centers-labs-lockups" class="section section--tint designer-only">
       <div class="section__inner">
         <div class="section__main">
           <p class="section__label">Logo &mdash; Centers &amp; labs</p>
@@ -634,13 +689,13 @@
             <li><a href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-9367" target="_blank" rel="noopener noreferrer">Build custom lockup (Figma)</a></li>
             <li><a href="https://www.figma.com/design/i5oYzzmzESojGcp37stFCp/-HAI--Guidelines?node-id=199-7907" target="_blank" rel="noopener noreferrer">Centers &amp; labs lockups (Figma)</a></li>
             <li><a href="#collab-lockups">Collab lockups</a></li>
-            <li><a href="#pillar-lockups">Pillar lockups</a></li>
+            <li class="designer-only"><a href="#pillar-lockups">Pillar lockups</a></li>
           </ul>
         </aside>
       </div>
     </section>
 
-    <section id="pillar-lockups" class="section">
+    <section id="pillar-lockups" class="section designer-only">
       <div class="section__inner">
         <div class="section__main">
         <p class="section__label">Logo &mdash; Pillar lockups</p>
@@ -735,7 +790,7 @@
             <li><a href="https://drive.google.com/drive/folders/1L986_TqxBPnaHlDvTjCHWZiD04wkQx16?usp=sharing" target="_blank" rel="noopener noreferrer">Existing lockups (Drive)</a></li>
             <li><a href="https://www.figma.com/design/Hb5tlyzlwA9RqqZSGF1GPs/-EXT--Refinements---Handoff?node-id=46-9367" target="_blank" rel="noopener noreferrer">Build custom lockup (Figma)</a></li>
             <li><a href="#logo">Logo system</a></li>
-            <li><a href="#centers-labs-lockups">Centers &amp; labs lockups</a></li>
+            <li class="designer-only"><a href="#centers-labs-lockups">Centers &amp; labs lockups</a></li>
           </ul>
         </aside>
       </div>
@@ -792,17 +847,19 @@
           </article>
         </div>
 
-        <h3 class="subsection__title">Graphics in templates</h3>
-        <p class="subsection__hint">The same export can drop into any Canva layout. Each format has a typical role and placement zone&mdash;hero or background.</p>
-        <div class="template-usage-table" id="template-usage-table"></div>
+        <div class="designer-only">
+          <h3 class="subsection__title">Graphics in templates</h3>
+          <p class="subsection__hint">The same export can drop into any Canva layout. Each format has a typical role and placement zone&mdash;hero or background.</p>
+          <div class="template-usage-table" id="template-usage-table"></div>
 
-        <h3 class="subsection__title">Canva templates</h3>
-        <p class="subsection__hint">Finished layouts live in the Stanford HAI Brand Kit. Export a PNG from the generator, then replace the placeholder in the matching template.</p>
-        <aside class="callout callout--canva">
-          <h3>Stanford HAI Brand Kit</h3>
-          <p>Templates require Stanford team Canva access. Open <strong>Brand &rarr; Stanford HAI</strong> to browse approved layouts, logos, colors, and fonts. If you need access, contact your HAI comms lead.</p>
-        </aside>
-        <div class="template-groups" id="template-groups"></div>
+          <h3 class="subsection__title">Canva templates</h3>
+          <p class="subsection__hint">Finished layouts live in the Stanford HAI Brand Kit. Export a PNG from the generator, then replace the placeholder in the matching template.</p>
+          <aside class="callout callout--canva">
+            <h3>Stanford HAI Brand Kit</h3>
+            <p>Templates require Stanford team Canva access. Open <strong>Brand &rarr; Stanford HAI</strong> to browse approved layouts, logos, colors, and fonts. If you need access, contact your HAI comms lead.</p>
+          </aside>
+          <div class="template-groups" id="template-groups"></div>
+        </div>
         </div>
         <aside class="section__resources" aria-label="Graphics resources">
           <p class="section__resources-label">Resources</p>

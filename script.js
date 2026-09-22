@@ -384,7 +384,7 @@ function renderUsageFlags({ hero, background }) {
     {
       allowed: background,
       yes: "Can be used as background",
-      no: "Cannot be used as background",
+      no: "No text overlaps the graphic",
     },
   ];
 
@@ -1499,20 +1499,258 @@ function createResourceIconElement(iconType, classPrefix = "resource-chip") {
   return iconWrap;
 }
 
-function initResourceLinks() {
-  document.querySelectorAll(".section__resources-list a").forEach((link) => {
-    const iconType = resolveResourceIcon(link);
-    const label = link.textContent.trim();
+const RESOURCE_LINKS_KEY = "hai-brand-resource-links";
+const EDIT_PASSWORD = "haieverybody";
+let resourceLinksBySection = {};
+let editModeActive = false;
+let editingContext = { sectionKey: null, index: null };
 
-    link.classList.add("resource-chip");
-    link.textContent = "";
+function getResourceSectionKey(listEl) {
+  return listEl.closest("section")?.id || "resources";
+}
 
-    const text = document.createElement("span");
-    text.className = "resource-chip__label";
-    text.textContent = label;
+function parseResourceLinkFromElement(anchor, listItem) {
+  const href = anchor.getAttribute("href") || "";
+  const label = anchor.textContent.trim();
+  const isExternal = anchor.target === "_blank" || /^https?:\/\//i.test(href);
 
-    link.append(createResourceIconElement(iconType), text);
+  return {
+    href,
+    label,
+    iconType: resolveResourceIcon(anchor),
+    external: isExternal,
+    download: anchor.hasAttribute("download") ? anchor.getAttribute("download") || true : null,
+    designerOnly: listItem?.classList.contains("designer-only") || false,
+  };
+}
+
+function bootstrapResourceLinks() {
+  const saved = localStorage.getItem(RESOURCE_LINKS_KEY);
+  if (saved) {
+    try {
+      resourceLinksBySection = JSON.parse(saved);
+      return;
+    } catch {
+      resourceLinksBySection = {};
+    }
+  }
+
+  document.querySelectorAll(".section__resources-list").forEach((list) => {
+    const key = getResourceSectionKey(list);
+    resourceLinksBySection[key] = Array.from(list.querySelectorAll(":scope > li")).map((listItem) =>
+      parseResourceLinkFromElement(listItem.querySelector("a"), listItem)
+    );
   });
+}
+
+function saveResourceLinks() {
+  localStorage.setItem(RESOURCE_LINKS_KEY, JSON.stringify(resourceLinksBySection));
+}
+
+function createResourceLinkElement(linkData) {
+  const anchor = document.createElement("a");
+  anchor.href = linkData.href;
+  anchor.className = "resource-chip";
+
+  if (linkData.external || /^https?:\/\//i.test(linkData.href)) {
+    anchor.target = "_blank";
+    anchor.rel = "noopener noreferrer";
+  }
+
+  if (linkData.download) {
+    anchor.download = typeof linkData.download === "string" ? linkData.download : "";
+  }
+
+  const label = document.createElement("span");
+  label.className = "resource-chip__label";
+  label.textContent = linkData.label;
+
+  anchor.append(createResourceIconElement(linkData.iconType), label);
+  return anchor;
+}
+
+function renderResourceLists() {
+  document.querySelectorAll(".section__resources").forEach((aside) => {
+    const list = aside.querySelector(".section__resources-list");
+    if (!list) return;
+
+    const key = getResourceSectionKey(list);
+    const links = resourceLinksBySection[key] || [];
+
+    list.innerHTML = "";
+    links.forEach((linkData, index) => {
+      const listItem = document.createElement("li");
+      if (linkData.designerOnly) {
+        listItem.classList.add("designer-only");
+      }
+      listItem.dataset.linkIndex = String(index);
+
+      const anchor = createResourceLinkElement(linkData);
+      listItem.appendChild(anchor);
+      list.appendChild(listItem);
+    });
+
+    let addButton = aside.querySelector(".resource-add-btn");
+    if (!addButton) {
+      addButton = document.createElement("button");
+      addButton.type = "button";
+      addButton.className = "resource-add-btn";
+      addButton.textContent = "Add";
+      addButton.dataset.sectionKey = key;
+      aside.appendChild(addButton);
+    } else {
+      addButton.dataset.sectionKey = key;
+    }
+  });
+}
+
+function setEditMode(active) {
+  editModeActive = active;
+  document.body.dataset.edit = active ? "true" : "";
+  const toggle = document.getElementById("edit-mode-toggle");
+  if (!toggle) return;
+
+  toggle.setAttribute("aria-pressed", active ? "true" : "false");
+  toggle.setAttribute("aria-label", active ? "Exit editing mode" : "Edit resources");
+  toggle.classList.toggle("toolbar-edit--active", active);
+
+  const label = toggle.querySelector(".toolbar-edit__label");
+  if (label) {
+    label.textContent = active ? "Exit editing mode" : "EDIT";
+  }
+}
+
+function openResourceEditModal(sectionKey, index) {
+  const modal = document.getElementById("resource-edit-modal");
+  const title = document.getElementById("resource-edit-title");
+  const hrefInput = document.getElementById("resource-edit-href");
+  const labelInput = document.getElementById("resource-edit-label");
+  const iconSelect = document.getElementById("resource-edit-icon");
+  const deleteButton = document.getElementById("resource-edit-delete");
+
+  if (!modal || !hrefInput || !labelInput || !iconSelect || !deleteButton || !title) return;
+
+  editingContext = { sectionKey, index };
+  const isNew = index === null;
+  const linkData = isNew ? null : resourceLinksBySection[sectionKey]?.[index];
+
+  title.textContent = isNew ? "Add link" : "Edit link";
+  hrefInput.value = linkData?.href || "";
+  labelInput.value = linkData?.label || "";
+  iconSelect.value = linkData?.iconType || "download";
+  deleteButton.hidden = isNew;
+
+  modal.showModal();
+  hrefInput.focus();
+}
+
+function closeResourceEditModal() {
+  document.getElementById("resource-edit-modal")?.close();
+  editingContext = { sectionKey: null, index: null };
+}
+
+function saveResourceEditForm(event) {
+  event.preventDefault();
+
+  const hrefInput = document.getElementById("resource-edit-href");
+  const labelInput = document.getElementById("resource-edit-label");
+  const iconSelect = document.getElementById("resource-edit-icon");
+  const { sectionKey, index } = editingContext;
+
+  if (!hrefInput || !labelInput || !iconSelect || !sectionKey) return;
+
+  const href = hrefInput.value.trim();
+  const label = labelInput.value.trim();
+  const iconType = iconSelect.value;
+
+  if (!href || !label) return;
+
+  const existingLink = index !== null ? resourceLinksBySection[sectionKey]?.[index] : null;
+  const linkData = {
+    href,
+    label,
+    iconType,
+    external: /^https?:\/\//i.test(href),
+    download: existingLink?.download ?? null,
+    designerOnly: existingLink?.designerOnly || false,
+  };
+
+  if (!resourceLinksBySection[sectionKey]) {
+    resourceLinksBySection[sectionKey] = [];
+  }
+
+  if (index === null) {
+    resourceLinksBySection[sectionKey].push(linkData);
+  } else {
+    resourceLinksBySection[sectionKey][index] = linkData;
+  }
+
+  saveResourceLinks();
+  renderResourceLists();
+  closeResourceEditModal();
+}
+
+function deleteResourceLink() {
+  const { sectionKey, index } = editingContext;
+  if (sectionKey === null || index === null) return;
+
+  resourceLinksBySection[sectionKey]?.splice(index, 1);
+  saveResourceLinks();
+  renderResourceLists();
+  closeResourceEditModal();
+}
+
+function initEditMode() {
+  const editToggle = document.getElementById("edit-mode-toggle");
+  const form = document.getElementById("resource-edit-form");
+  const cancelButton = document.getElementById("resource-edit-cancel");
+  const deleteButton = document.getElementById("resource-edit-delete");
+
+  editToggle?.addEventListener("click", () => {
+    if (!editModeActive) {
+      const password = window.prompt("Enter password:");
+      if (password !== EDIT_PASSWORD) return;
+      setEditMode(true);
+      return;
+    }
+
+    setEditMode(false);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!editModeActive) return;
+
+    const addButton = event.target.closest(".resource-add-btn");
+    if (addButton) {
+      openResourceEditModal(addButton.dataset.sectionKey, null);
+      return;
+    }
+
+    const chip = event.target.closest(".section__resources-list .resource-chip");
+    if (!chip) return;
+
+    event.preventDefault();
+
+    const listItem = chip.closest("li");
+    const list = chip.closest(".section__resources-list");
+    if (!listItem || !list) return;
+
+    openResourceEditModal(getResourceSectionKey(list), Number(listItem.dataset.linkIndex));
+  });
+
+  form?.addEventListener("submit", saveResourceEditForm);
+  cancelButton?.addEventListener("click", closeResourceEditModal);
+  deleteButton?.addEventListener("click", deleteResourceLink);
+
+  document.getElementById("resource-edit-modal")?.addEventListener("cancel", () => {
+    editingContext = { sectionKey: null, index: null };
+  });
+}
+
+function initResourceLinks() {
+  bootstrapResourceLinks();
+  renderResourceLists();
+  initEditMode();
 }
 
 function renderDownloads() {
@@ -1549,6 +1787,31 @@ function renderDownloads() {
     container.appendChild(link);
   });
 }
+
+function initViewMode() {
+  const toggle = document.getElementById("designer-mode-toggle");
+  const storageKey = "hai-brand-view-mode";
+
+  function applyViewMode(mode) {
+    document.body.dataset.view = mode;
+    if (toggle) {
+      toggle.checked = mode === "designer";
+    }
+  }
+
+  const savedMode = localStorage.getItem(storageKey);
+  if (savedMode === "designer" || savedMode === "basics") {
+    applyViewMode(savedMode);
+  }
+
+  toggle?.addEventListener("change", () => {
+    const mode = toggle.checked ? "designer" : "basics";
+    applyViewMode(mode);
+    localStorage.setItem(storageKey, mode);
+  });
+}
+
+initViewMode();
 
 renderColorPalette("primary-colors", COLOR_PALETTE);
 renderColors("accent-colors", COLORS.accent);
